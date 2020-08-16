@@ -1,6 +1,6 @@
 package com.scomarlf.bot
 
-import com.scomarlf.bot.Handles.MainResponseHandles
+import com.scomarlf.bot.handles.MainResponseHandles
 import com.scomarlf.bot.conf.Detail
 import org.telegram.abilitybots.api.bot.AbilityBot
 import org.telegram.telegrambots.bots.DefaultBotOptions

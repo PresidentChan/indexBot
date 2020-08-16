@@ -1,4 +1,4 @@
-package com.scomarlf.bot.Handles
+package com.scomarlf.bot.handles
 
 import org.telegram.abilitybots.api.sender.MessageSender
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
