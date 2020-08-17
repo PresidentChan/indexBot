@@ -2,6 +2,7 @@
 
 serviceName="index-bot"
 
+
 if [ "$1" == "init" ]; then
   echo -e "\033[32m init \033[0m"
 
@@ -30,32 +31,30 @@ EOF
 
   sudo systemctl enable $serviceName &>/dev/null
 
-elif [ "$1" == "start" ]; then
-  echo -e "\033[32m start \033[0m"
-  sudo systemctl start $serviceName
-#  bash $0 log
-  echo "finish"
-elif [ "$1" == "restart" ]; then
-  echo -e "\033[32m restart \033[0m"
-  sudo systemctl restart $serviceName &
-#  bash $0 log
+elif [[ "$1" == "start" || "$1" == "restart" || "$1" == "stop"|| "$1" == "enable"|| "$1" == "disable" ]]; then
+  echo -e "\033[32m $1 \033[0m"
+  sudo systemctl "$1" $serviceName
+  #  bash $0 log
   echo "finish"
 elif [ "$1" == "upgrade" ]; then
   echo -e "\033[32m upgrade \033[0m"
   sudo systemctl stop $serviceName
   git pull
+  sudo mvn clean
   bash $0 start
 elif [ "$1" == "run" ]; then
   echo -e "\033[32m run \033[0m"
   mvn install
+  # move bot.json file to application folder
+  cp bot.json target/
   java -jar $(readlink -e ./)/target/indexbot-1.1.jar
 elif [ "$1" == "help" ]; then
   echo -e "\033[36m =========================== \033[0m"
   echo -e "\033[36m Automated deployment script \033[0m"
   echo -e "\033[36m =========================== \033[0m"
-  echo -e "\033[32m init \033[0m: Registration indexBot service"
-  echo -e "\033[32m start \033[0m: Start indexBot service"
-  echo -e "\033[32m restart \033[0m: Restart indexBot service"
+  echo -e "\033[32m init \033[0m: Registration the indexBot service"
+  echo -e "\033[32m start/restart/stop \033[0m: Operate the indexBot service"
+  echo -e "\033[32m enable/disable \033[0m: Manage automatically service"
   echo -e "\033[32m upgrade \033[0m: Update project & rebuild & restart indexBot"
   echo -e "\033[32m log \033[0m: Show log"
   echo -e "\033[36m =========================== \033[0m"
