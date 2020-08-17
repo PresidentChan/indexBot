@@ -2,9 +2,9 @@
 
 serviceName="index-bot"
 
+echo -e "\033[32m ====== $1 ====== \033[0m"
 
 if [ "$1" == "init" ]; then
-  echo -e "\033[32m init \033[0m"
 
   echo "create service"
 
@@ -31,19 +31,16 @@ EOF
 
   sudo systemctl enable $serviceName &>/dev/null
 
-elif [[ "$1" == "start" || "$1" == "restart" || "$1" == "stop"|| "$1" == "enable"|| "$1" == "disable" ]]; then
-  echo -e "\033[32m $1 \033[0m"
+elif [[ "$1" == "start" || "$1" == "restart" || "$1" == "stop" || "$1" == "enable" || "$1" == "disable" ]]; then
   sudo systemctl "$1" $serviceName
   #  bash $0 log
   echo "finish"
 elif [ "$1" == "upgrade" ]; then
-  echo -e "\033[32m upgrade \033[0m"
   sudo systemctl stop $serviceName
   git pull
   sudo mvn clean
   bash $0 start
 elif [ "$1" == "run" ]; then
-  echo -e "\033[32m run \033[0m"
   mvn install
   # move bot.json file to application folder
   cp bot.json target/
