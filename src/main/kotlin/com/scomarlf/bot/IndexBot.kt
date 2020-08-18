@@ -1,12 +1,12 @@
 package com.scomarlf.bot
 
 import com.scomarlf.bot.handles.MainResponseHandles
-import com.scomarlf.conf.Bot
+import com.scomarlf.conf.BotConf
 import org.telegram.abilitybots.api.bot.AbilityBot
 import org.telegram.telegrambots.bots.DefaultBotOptions
 import org.telegram.telegrambots.meta.api.objects.Update
 
-class IndexBot(botOptions: DefaultBotOptions) : AbilityBot(Bot.TOKEN, Bot.USERNAME, botOptions) {
+class IndexBot(botOptions: DefaultBotOptions) : AbilityBot(BotConf.TOKEN, BotConf.USERNAME, botOptions) {
 
     var mainHandle : MainResponseHandles? = null
 
@@ -17,7 +17,7 @@ class IndexBot(botOptions: DefaultBotOptions) : AbilityBot(Bot.TOKEN, Bot.USERNA
     }
 
     override fun creatorId(): Int {
-        return Bot.CREATER;
+        return BotConf.CREATER;
     }
 
     override fun onUpdateReceived(update: Update) {

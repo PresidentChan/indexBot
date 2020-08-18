@@ -1,9 +1,9 @@
 package com.scomarlf.conf
 
-class Bot {
+class DatabaseConf {
     companion object {
-        var TOKEN: String = ""
+        var URL: String = ""
         var USERNAME: String = ""
-        var CREATER: Int = 0
+        var PASSWORD: String = ""
     }
 }

@@ -1,8 +1,9 @@
 package com.scomarlf
 
 import com.scomarlf.bot.IndexBot
-import com.scomarlf.conf.Bot
-import com.scomarlf.conf.Database
+import com.scomarlf.conf.BotConf
+import com.scomarlf.conf.DatabaseConf
+import com.scomarlf.utils.HikariManager
 import org.apache.commons.io.FileUtils
 import org.json.JSONObject
 import org.telegram.telegrambots.ApiContextInitializer
@@ -13,9 +14,14 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 import java.io.File
 
 fun main(args: Array<String>) {
+    // read config file
     val readStatus = readConf()
-    if (readStatus)
+    if (readStatus){
+        //create database connection
+        HikariManager.createConnection()
+        // start bot
         botStart()
+    }
 }
 
 /**
@@ -26,16 +32,16 @@ fun readConf(): Boolean {
         val file = File("conf.json")
         val content = FileUtils.readFileToString(file, "UTF-8")
         val jsonObject = JSONObject(content)
-        // bot 配置
+        // for bot
         val botConfObj = jsonObject.get("bot") as JSONObject
-        Bot.TOKEN = botConfObj.get("bot_token") as String
-        Bot.USERNAME = botConfObj.get("bot_username") as String
-        Bot.CREATER = botConfObj.get("creater") as Int
-        // 数据库配置
+        BotConf.TOKEN = botConfObj.get("bot_token") as String
+        BotConf.USERNAME = botConfObj.get("bot_username") as String
+        BotConf.CREATER = botConfObj.get("creater") as Int
+        // for database
         val databaseConfObj = jsonObject.get("database") as JSONObject
-        Database.URL = databaseConfObj.get("url") as String
-        Database.USERNAME = databaseConfObj.get("username") as String
-        Database.PASSWORD = databaseConfObj.get("password") as String
+        DatabaseConf.URL = databaseConfObj.get("url") as String
+        DatabaseConf.USERNAME = databaseConfObj.get("username") as String
+        DatabaseConf.PASSWORD = databaseConfObj.get("password") as String
         return true
     } catch (e: Exception) {
         e.printStackTrace()

@@ -41,19 +41,19 @@
             <artifactId>slf4j-nop</artifactId>
             <version>1.7.30</version>
         </dependency>
-
+        <!--mysql connector-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.21</version>
         </dependency>
-
+        <!--Database Migrations tool-->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>6.5.4</version>
         </dependency>
-
+        <!--JOOQ ORM-->
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
@@ -69,7 +69,13 @@
             <artifactId>jooq-codegen</artifactId>
             <version>3.13.4</version>
         </dependency>
-
+        <!--database pool manage-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+        <!--Telegram Bot Java API Library-->
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
@@ -85,7 +91,7 @@
             <artifactId>telegrambots-abilities</artifactId>
             <version>4.9</version>
         </dependency>
-
+        <!--Java HTML parse-->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
