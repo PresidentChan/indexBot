@@ -65,9 +65,9 @@ fun botStart() {
     // Register bot
     try {
         // don't use proxy
-//        botsApi.registerBot(IndexBot(DefaultBotOptions()))
+        botsApi.registerBot(IndexBot(DefaultBotOptions()))
         // use proxy
-         botsApi.registerBot(IndexBot(botOptions));
+//         botsApi.registerBot(IndexBot(botOptions));
     } catch (e: TelegramApiException) {
         e.printStackTrace()
     }
