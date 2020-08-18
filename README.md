@@ -4,16 +4,16 @@ Telegram 索引导航机器人
 公共实例：[TGX-索引秘书](https://t.me/zh_secretary_bot)
 
 ## 部署
-#### 1.安装依赖
+#### 1. 安装依赖
 ```shell script
 sudo apt install git maven default-jdk -y
 ```
-#### 2.获取本仓库源码
+#### 2. 获取本仓库源码
 ```shell script
 git clone git@github.com:Scomarlf/indexBot.git
 cd indexBot
 ```
-#### 3.配置bot
+#### 3. 配置bot
 复制一份_conf.json文件并重命名为conf.json，编辑conf.json文件，配置其信息
 ```
 {
@@ -29,11 +29,29 @@ cd indexBot
   }
 }
 ```
-#### 4.运行
+#### 4. 初始化数据库
+修改pom.xml文件中以下位置的数据库连接信息
+```
+<plugin>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-maven-plugin</artifactId>
+    <version>6.5.4</version>
+    <configuration>
+        <url>jdbc:mysql://localhost:3306/indexBot?serverTimezone=UTC&amp;characterEncoding=utf-8</url>
+        <user>root</user>
+        <password>password</password>
+    </configuration>
+</plugin>
+```
+使用命令初始化数据库
+```shell script
+mvn flyway:migrate
+```
+#### 5. 运行
 ```shell script
 chmod +x bot.sh && sudo ./bot.sh run
 ```
-#### 5.管理
+#### 6. 管理
 通过 `./bot.sh help` 可以查看以下内容  
 `./bot.sh run` 编译并运行  
 `./bot.sh init` 注册 systemd 服务  
