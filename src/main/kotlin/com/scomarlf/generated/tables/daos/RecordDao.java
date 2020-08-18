@@ -61,17 +61,17 @@ public class RecordDao extends DAOImpl<RecordRecord, com.scomarlf.generated.tabl
     }
 
     /**
-     * Fetch records that have <code>code BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>username BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfCode(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Record.RECORD.CODE, lowerInclusive, upperInclusive);
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfUsername(String lowerInclusive, String upperInclusive) {
+        return fetchRange(Record.RECORD.USERNAME, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>code IN (values)</code>
+     * Fetch records that have <code>username IN (values)</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Record> fetchByCode(String... values) {
-        return fetch(Record.RECORD.CODE, values);
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchByUsername(String... values) {
+        return fetch(Record.RECORD.USERNAME, values);
     }
 
     /**
@@ -187,6 +187,20 @@ public class RecordDao extends DAOImpl<RecordRecord, com.scomarlf.generated.tabl
     }
 
     /**
+     * Fetch records that have <code>status BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfStatus(Boolean lowerInclusive, Boolean upperInclusive) {
+        return fetchRange(Record.RECORD.STATUS, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>status IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchByStatus(Boolean... values) {
+        return fetch(Record.RECORD.STATUS, values);
+    }
+
+    /**
      * Fetch records that have <code>createTime BETWEEN lowerInclusive AND upperInclusive</code>
      */
     public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfCreatetime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
@@ -198,6 +212,20 @@ public class RecordDao extends DAOImpl<RecordRecord, com.scomarlf.generated.tabl
      */
     public List<com.scomarlf.generated.tables.pojos.Record> fetchByCreatetime(LocalDateTime... values) {
         return fetch(Record.RECORD.CREATETIME, values);
+    }
+
+    /**
+     * Fetch records that have <code>createUser BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfCreateuser(Long lowerInclusive, Long upperInclusive) {
+        return fetchRange(Record.RECORD.CREATEUSER, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>createUser IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchByCreateuser(Long... values) {
+        return fetch(Record.RECORD.CREATEUSER, values);
     }
 
     /**
@@ -215,16 +243,16 @@ public class RecordDao extends DAOImpl<RecordRecord, com.scomarlf.generated.tabl
     }
 
     /**
-     * Fetch records that have <code>enrollUser BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>updateUser BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfEnrolluser(Long lowerInclusive, Long upperInclusive) {
-        return fetchRange(Record.RECORD.ENROLLUSER, lowerInclusive, upperInclusive);
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchRangeOfUpdateuser(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
+        return fetchRange(Record.RECORD.UPDATEUSER, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>enrollUser IN (values)</code>
+     * Fetch records that have <code>updateUser IN (values)</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Record> fetchByEnrolluser(Long... values) {
-        return fetch(Record.RECORD.ENROLLUSER, values);
+    public List<com.scomarlf.generated.tables.pojos.Record> fetchByUpdateuser(LocalDateTime... values) {
+        return fetch(Record.RECORD.UPDATEUSER, values);
     }
 }

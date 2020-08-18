@@ -75,34 +75,6 @@ public class ApproveDao extends DAOImpl<ApproveRecord, com.scomarlf.generated.ta
     }
 
     /**
-     * Fetch records that have <code>userId BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Approve> fetchRangeOfUserid(Long lowerInclusive, Long upperInclusive) {
-        return fetchRange(Approve.APPROVE.USERID, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>userId IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Approve> fetchByUserid(Long... values) {
-        return fetch(Approve.APPROVE.USERID, values);
-    }
-
-    /**
-     * Fetch records that have <code>time BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Approve> fetchRangeOfTime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
-        return fetchRange(Approve.APPROVE.TIME, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>time IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Approve> fetchByTime(LocalDateTime... values) {
-        return fetch(Approve.APPROVE.TIME, values);
-    }
-
-    /**
      * Fetch records that have <code>status BETWEEN lowerInclusive AND upperInclusive</code>
      */
     public List<com.scomarlf.generated.tables.pojos.Approve> fetchRangeOfStatus(Boolean lowerInclusive, Boolean upperInclusive) {
@@ -114,5 +86,33 @@ public class ApproveDao extends DAOImpl<ApproveRecord, com.scomarlf.generated.ta
      */
     public List<com.scomarlf.generated.tables.pojos.Approve> fetchByStatus(Boolean... values) {
         return fetch(Approve.APPROVE.STATUS, values);
+    }
+
+    /**
+     * Fetch records that have <code>createUser BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Approve> fetchRangeOfCreateuser(Long lowerInclusive, Long upperInclusive) {
+        return fetchRange(Approve.APPROVE.CREATEUSER, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>createUser IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Approve> fetchByCreateuser(Long... values) {
+        return fetch(Approve.APPROVE.CREATEUSER, values);
+    }
+
+    /**
+     * Fetch records that have <code>createTime BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Approve> fetchRangeOfCreatetime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
+        return fetchRange(Approve.APPROVE.CREATETIME, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>createTime IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Approve> fetchByCreatetime(LocalDateTime... values) {
+        return fetch(Approve.APPROVE.CREATETIME, values);
     }
 }

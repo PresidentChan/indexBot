@@ -61,129 +61,17 @@ public class EnrollDao extends DAOImpl<EnrollRecord, com.scomarlf.generated.tabl
     }
 
     /**
-     * Fetch records that have <code>userId BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>recordId BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfUserid(Long lowerInclusive, Long upperInclusive) {
-        return fetchRange(Enroll.ENROLL.USERID, lowerInclusive, upperInclusive);
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfRecordid(Long lowerInclusive, Long upperInclusive) {
+        return fetchRange(Enroll.ENROLL.RECORDID, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>userId IN (values)</code>
+     * Fetch records that have <code>recordId IN (values)</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByUserid(Long... values) {
-        return fetch(Enroll.ENROLL.USERID, values);
-    }
-
-    /**
-     * Fetch records that have <code>channelId BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfChannelid(Long lowerInclusive, Long upperInclusive) {
-        return fetchRange(Enroll.ENROLL.CHANNELID, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>channelId IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByChannelid(Long... values) {
-        return fetch(Enroll.ENROLL.CHANNELID, values);
-    }
-
-    /**
-     * Fetch records that have <code>channelCode BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfChannelcode(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.CHANNELCODE, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>channelCode IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByChannelcode(String... values) {
-        return fetch(Enroll.ENROLL.CHANNELCODE, values);
-    }
-
-    /**
-     * Fetch records that have <code>inviteLink BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfInvitelink(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.INVITELINK, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>inviteLink IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByInvitelink(String... values) {
-        return fetch(Enroll.ENROLL.INVITELINK, values);
-    }
-
-    /**
-     * Fetch records that have <code>title BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfTitle(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.TITLE, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>title IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByTitle(String... values) {
-        return fetch(Enroll.ENROLL.TITLE, values);
-    }
-
-    /**
-     * Fetch records that have <code>remark BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfRemark(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.REMARK, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>remark IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByRemark(String... values) {
-        return fetch(Enroll.ENROLL.REMARK, values);
-    }
-
-    /**
-     * Fetch records that have <code>tag BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfTag(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.TAG, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>tag IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByTag(String... values) {
-        return fetch(Enroll.ENROLL.TAG, values);
-    }
-
-    /**
-     * Fetch records that have <code>classification BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfClassification(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Enroll.ENROLL.CLASSIFICATION, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>classification IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByClassification(String... values) {
-        return fetch(Enroll.ENROLL.CLASSIFICATION, values);
-    }
-
-    /**
-     * Fetch records that have <code>time BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfTime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
-        return fetchRange(Enroll.ENROLL.TIME, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>time IN (values)</code>
-     */
-    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByTime(LocalDateTime... values) {
-        return fetch(Enroll.ENROLL.TIME, values);
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByRecordid(Long... values) {
+        return fetch(Enroll.ENROLL.RECORDID, values);
     }
 
     /**
@@ -198,5 +86,33 @@ public class EnrollDao extends DAOImpl<EnrollRecord, com.scomarlf.generated.tabl
      */
     public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByStatus(Boolean... values) {
         return fetch(Enroll.ENROLL.STATUS, values);
+    }
+
+    /**
+     * Fetch records that have <code>createUser BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfCreateuser(Long lowerInclusive, Long upperInclusive) {
+        return fetchRange(Enroll.ENROLL.CREATEUSER, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>createUser IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByCreateuser(Long... values) {
+        return fetch(Enroll.ENROLL.CREATEUSER, values);
+    }
+
+    /**
+     * Fetch records that have <code>createTime BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchRangeOfCreatetime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
+        return fetchRange(Enroll.ENROLL.CREATETIME, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>createTime IN (values)</code>
+     */
+    public List<com.scomarlf.generated.tables.pojos.Enroll> fetchByCreatetime(LocalDateTime... values) {
+        return fetch(Enroll.ENROLL.CREATETIME, values);
     }
 }

@@ -25,94 +25,14 @@ public interface IEnroll extends Serializable {
     public String getId();
 
     /**
-     * Setter for <code>indexBot.enroll.userId</code>. 用户ID
+     * Setter for <code>indexBot.enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public void setUserid(Long value);
+    public void setRecordid(Long value);
 
     /**
-     * Getter for <code>indexBot.enroll.userId</code>. 用户ID
+     * Getter for <code>indexBot.enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public Long getUserid();
-
-    /**
-     * Setter for <code>indexBot.enroll.channelId</code>. 申请频道ID
-     */
-    public void setChannelid(Long value);
-
-    /**
-     * Getter for <code>indexBot.enroll.channelId</code>. 申请频道ID
-     */
-    public Long getChannelid();
-
-    /**
-     * Setter for <code>indexBot.enroll.channelCode</code>. 申请频道 username
-     */
-    public void setChannelcode(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.channelCode</code>. 申请频道 username
-     */
-    public String getChannelcode();
-
-    /**
-     * Setter for <code>indexBot.enroll.inviteLink</code>. 申请频道私有链接
-     */
-    public void setInvitelink(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.inviteLink</code>. 申请频道私有链接
-     */
-    public String getInvitelink();
-
-    /**
-     * Setter for <code>indexBot.enroll.title</code>. 名称
-     */
-    public void setTitle(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.title</code>. 名称
-     */
-    public String getTitle();
-
-    /**
-     * Setter for <code>indexBot.enroll.remark</code>. 简介
-     */
-    public void setRemark(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.remark</code>. 简介
-     */
-    public String getRemark();
-
-    /**
-     * Setter for <code>indexBot.enroll.tag</code>. 标签
-     */
-    public void setTag(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.tag</code>. 标签
-     */
-    public String getTag();
-
-    /**
-     * Setter for <code>indexBot.enroll.classification</code>. 分类
-     */
-    public void setClassification(String value);
-
-    /**
-     * Getter for <code>indexBot.enroll.classification</code>. 分类
-     */
-    public String getClassification();
-
-    /**
-     * Setter for <code>indexBot.enroll.time</code>. 申请时间
-     */
-    public void setTime(LocalDateTime value);
-
-    /**
-     * Getter for <code>indexBot.enroll.time</code>. 申请时间
-     */
-    public LocalDateTime getTime();
+    public Long getRecordid();
 
     /**
      * Setter for <code>indexBot.enroll.status</code>. 是否提交
@@ -123,6 +43,26 @@ public interface IEnroll extends Serializable {
      * Getter for <code>indexBot.enroll.status</code>. 是否提交
      */
     public Boolean getStatus();
+
+    /**
+     * Setter for <code>indexBot.enroll.createUser</code>. 用户ID
+     */
+    public void setCreateuser(Long value);
+
+    /**
+     * Getter for <code>indexBot.enroll.createUser</code>. 用户ID
+     */
+    public Long getCreateuser();
+
+    /**
+     * Setter for <code>indexBot.enroll.createTime</code>. 申请时间
+     */
+    public void setCreatetime(LocalDateTime value);
+
+    /**
+     * Getter for <code>indexBot.enroll.createTime</code>. 申请时间
+     */
+    public LocalDateTime getCreatetime();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

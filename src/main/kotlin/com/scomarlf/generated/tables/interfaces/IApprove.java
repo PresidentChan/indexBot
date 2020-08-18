@@ -35,26 +35,6 @@ public interface IApprove extends Serializable {
     public String getEnrollid();
 
     /**
-     * Setter for <code>indexBot.approve.userId</code>. 用户ID
-     */
-    public void setUserid(Long value);
-
-    /**
-     * Getter for <code>indexBot.approve.userId</code>. 用户ID
-     */
-    public Long getUserid();
-
-    /**
-     * Setter for <code>indexBot.approve.time</code>. 审核时间
-     */
-    public void setTime(LocalDateTime value);
-
-    /**
-     * Getter for <code>indexBot.approve.time</code>. 审核时间
-     */
-    public LocalDateTime getTime();
-
-    /**
      * Setter for <code>indexBot.approve.status</code>. 审核状态 通过不通过
      */
     public void setStatus(Boolean value);
@@ -63,6 +43,26 @@ public interface IApprove extends Serializable {
      * Getter for <code>indexBot.approve.status</code>. 审核状态 通过不通过
      */
     public Boolean getStatus();
+
+    /**
+     * Setter for <code>indexBot.approve.createUser</code>. 用户ID
+     */
+    public void setCreateuser(Long value);
+
+    /**
+     * Getter for <code>indexBot.approve.createUser</code>. 用户ID
+     */
+    public Long getCreateuser();
+
+    /**
+     * Setter for <code>indexBot.approve.createTime</code>. 审核时间
+     */
+    public void setCreatetime(LocalDateTime value);
+
+    /**
+     * Getter for <code>indexBot.approve.createTime</code>. 审核时间
+     */
+    public LocalDateTime getCreatetime();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

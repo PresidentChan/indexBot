@@ -22,7 +22,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record7<Long, String, String, Boolean, String, LocalDateTime, LocalDateTime>, IUser {
 
-    private static final long serialVersionUID = -1848020832;
+    private static final long serialVersionUID = -1400029244;
 
     /**
      * Setter for <code>indexBot.user.id</code>. 主键
@@ -121,18 +121,18 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     }
 
     /**
-     * Setter for <code>indexBot.user.lastOper</code>. 最后一次操作的时间
+     * Setter for <code>indexBot.user.updateTime</code>. 最后一次操作的时间
      */
     @Override
-    public void setLastoper(LocalDateTime value) {
+    public void setUpdatetime(LocalDateTime value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>indexBot.user.lastOper</code>. 最后一次操作的时间
+     * Getter for <code>indexBot.user.updateTime</code>. 最后一次操作的时间
      */
     @Override
-    public LocalDateTime getLastoper() {
+    public LocalDateTime getUpdatetime() {
         return (LocalDateTime) get(6);
     }
 
@@ -191,7 +191,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
 
     @Override
     public Field<LocalDateTime> field7() {
-        return User.USER.LASTOPER;
+        return User.USER.UPDATETIME;
     }
 
     @Override
@@ -226,7 +226,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
 
     @Override
     public LocalDateTime component7() {
-        return getLastoper();
+        return getUpdatetime();
     }
 
     @Override
@@ -261,7 +261,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
 
     @Override
     public LocalDateTime value7() {
-        return getLastoper();
+        return getUpdatetime();
     }
 
     @Override
@@ -302,7 +302,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
 
     @Override
     public UserRecord value7(LocalDateTime value) {
-        setLastoper(value);
+        setUpdatetime(value);
         return this;
     }
 
@@ -330,7 +330,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
         setIsbot(from.getIsbot());
         setLanguagecode(from.getLanguagecode());
         setCreatetime(from.getCreatetime());
-        setLastoper(from.getLastoper());
+        setUpdatetime(from.getUpdatetime());
     }
 
     @Override
@@ -353,7 +353,7 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
     /**
      * Create a detached, initialised UserRecord
      */
-    public UserRecord(Long id, String firstname, String lastname, Boolean isbot, String languagecode, LocalDateTime createtime, LocalDateTime lastoper) {
+    public UserRecord(Long id, String firstname, String lastname, Boolean isbot, String languagecode, LocalDateTime createtime, LocalDateTime updatetime) {
         super(User.USER);
 
         set(0, id);
@@ -362,6 +362,6 @@ public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Recor
         set(3, isbot);
         set(4, languagecode);
         set(5, createtime);
-        set(6, lastoper);
+        set(6, updatetime);
     }
 }

@@ -10,8 +10,8 @@ import com.scomarlf.generated.tables.interfaces.IVRecord;
 import java.time.LocalDateTime;
 
 import org.jooq.Field;
-import org.jooq.Record15;
-import org.jooq.Row15;
+import org.jooq.Record17;
+import org.jooq.Row17;
 import org.jooq.impl.TableRecordImpl;
 
 
@@ -19,9 +19,9 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Record15<Long, String, String, String, String, Long, String, String, String, String, String, Long, LocalDateTime, LocalDateTime, Long>, IVRecord {
+public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Record17<Long, String, String, String, String, Long, String, String, String, String, String, Long, Boolean, LocalDateTime, Long, LocalDateTime, LocalDateTime>, IVRecord {
 
-    private static final long serialVersionUID = -593733172;
+    private static final long serialVersionUID = -274902162;
 
     /**
      * Setter for <code>indexBot.v_record.id</code>. 频道\群组\机器人 ID
@@ -40,18 +40,18 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
-     * Setter for <code>indexBot.v_record.code</code>. 频道\群组\机器人 username
+     * Setter for <code>indexBot.v_record.username</code>. 频道\群组\机器人 username
      */
     @Override
-    public void setCode(String value) {
+    public void setUsername(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_record.code</code>. 频道\群组\机器人 username
+     * Getter for <code>indexBot.v_record.username</code>. 频道\群组\机器人 username
      */
     @Override
-    public String getCode() {
+    public String getUsername() {
         return (String) get(1);
     }
 
@@ -152,7 +152,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
-     * Setter for <code>indexBot.v_record.typeName</code>. 名
+     * Setter for <code>indexBot.v_record.typeName</code>.
      */
     @Override
     public void setTypename(String value) {
@@ -160,7 +160,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
-     * Getter for <code>indexBot.v_record.typeName</code>. 名
+     * Getter for <code>indexBot.v_record.typeName</code>.
      */
     @Override
     public String getTypename() {
@@ -184,7 +184,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
-     * Setter for <code>indexBot.v_record.classificationName</code>. 名
+     * Setter for <code>indexBot.v_record.classificationName</code>.
      */
     @Override
     public void setClassificationname(String value) {
@@ -192,7 +192,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
-     * Getter for <code>indexBot.v_record.classificationName</code>. 名
+     * Getter for <code>indexBot.v_record.classificationName</code>.
      */
     @Override
     public String getClassificationname() {
@@ -216,11 +216,27 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     /**
+     * Setter for <code>indexBot.v_record.status</code>. 是否展示
+     */
+    @Override
+    public void setStatus(Boolean value) {
+        set(12, value);
+    }
+
+    /**
+     * Getter for <code>indexBot.v_record.status</code>. 是否展示
+     */
+    @Override
+    public Boolean getStatus() {
+        return (Boolean) get(12);
+    }
+
+    /**
      * Setter for <code>indexBot.v_record.createTime</code>. 创建时间
      */
     @Override
     public void setCreatetime(LocalDateTime value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -228,7 +244,23 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
      */
     @Override
     public LocalDateTime getCreatetime() {
-        return (LocalDateTime) get(12);
+        return (LocalDateTime) get(13);
+    }
+
+    /**
+     * Setter for <code>indexBot.v_record.createUser</code>. 提交收录申请用户
+     */
+    @Override
+    public void setCreateuser(Long value) {
+        set(14, value);
+    }
+
+    /**
+     * Getter for <code>indexBot.v_record.createUser</code>. 提交收录申请用户
+     */
+    @Override
+    public Long getCreateuser() {
+        return (Long) get(14);
     }
 
     /**
@@ -236,7 +268,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
      */
     @Override
     public void setUpdatetime(LocalDateTime value) {
-        set(13, value);
+        set(15, value);
     }
 
     /**
@@ -244,37 +276,37 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
      */
     @Override
     public LocalDateTime getUpdatetime() {
-        return (LocalDateTime) get(13);
+        return (LocalDateTime) get(15);
     }
 
     /**
-     * Setter for <code>indexBot.v_record.enrollUser</code>. 提交收录申请用户
+     * Setter for <code>indexBot.v_record.updateUser</code>. 修改用户
      */
     @Override
-    public void setEnrolluser(Long value) {
-        set(14, value);
+    public void setUpdateuser(LocalDateTime value) {
+        set(16, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_record.enrollUser</code>. 提交收录申请用户
+     * Getter for <code>indexBot.v_record.updateUser</code>. 修改用户
      */
     @Override
-    public Long getEnrolluser() {
-        return (Long) get(14);
+    public LocalDateTime getUpdateuser() {
+        return (LocalDateTime) get(16);
     }
 
     // -------------------------------------------------------------------------
-    // Record15 type implementation
+    // Record17 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<Long, String, String, String, String, Long, String, String, String, String, String, Long, LocalDateTime, LocalDateTime, Long> fieldsRow() {
-        return (Row15) super.fieldsRow();
+    public Row17<Long, String, String, String, String, Long, String, String, String, String, String, Long, Boolean, LocalDateTime, Long, LocalDateTime, LocalDateTime> fieldsRow() {
+        return (Row17) super.fieldsRow();
     }
 
     @Override
-    public Row15<Long, String, String, String, String, Long, String, String, String, String, String, Long, LocalDateTime, LocalDateTime, Long> valuesRow() {
-        return (Row15) super.valuesRow();
+    public Row17<Long, String, String, String, String, Long, String, String, String, String, String, Long, Boolean, LocalDateTime, Long, LocalDateTime, LocalDateTime> valuesRow() {
+        return (Row17) super.valuesRow();
     }
 
     @Override
@@ -284,7 +316,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
 
     @Override
     public Field<String> field2() {
-        return VRecord.V_RECORD.CODE;
+        return VRecord.V_RECORD.USERNAME;
     }
 
     @Override
@@ -338,18 +370,28 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     @Override
-    public Field<LocalDateTime> field13() {
-        return VRecord.V_RECORD.CREATETIME;
+    public Field<Boolean> field13() {
+        return VRecord.V_RECORD.STATUS;
     }
 
     @Override
     public Field<LocalDateTime> field14() {
-        return VRecord.V_RECORD.UPDATETIME;
+        return VRecord.V_RECORD.CREATETIME;
     }
 
     @Override
     public Field<Long> field15() {
-        return VRecord.V_RECORD.ENROLLUSER;
+        return VRecord.V_RECORD.CREATEUSER;
+    }
+
+    @Override
+    public Field<LocalDateTime> field16() {
+        return VRecord.V_RECORD.UPDATETIME;
+    }
+
+    @Override
+    public Field<LocalDateTime> field17() {
+        return VRecord.V_RECORD.UPDATEUSER;
     }
 
     @Override
@@ -359,7 +401,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
 
     @Override
     public String component2() {
-        return getCode();
+        return getUsername();
     }
 
     @Override
@@ -413,18 +455,28 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     @Override
-    public LocalDateTime component13() {
-        return getCreatetime();
+    public Boolean component13() {
+        return getStatus();
     }
 
     @Override
     public LocalDateTime component14() {
-        return getUpdatetime();
+        return getCreatetime();
     }
 
     @Override
     public Long component15() {
-        return getEnrolluser();
+        return getCreateuser();
+    }
+
+    @Override
+    public LocalDateTime component16() {
+        return getUpdatetime();
+    }
+
+    @Override
+    public LocalDateTime component17() {
+        return getUpdateuser();
     }
 
     @Override
@@ -434,7 +486,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
 
     @Override
     public String value2() {
-        return getCode();
+        return getUsername();
     }
 
     @Override
@@ -488,18 +540,28 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     @Override
-    public LocalDateTime value13() {
-        return getCreatetime();
+    public Boolean value13() {
+        return getStatus();
     }
 
     @Override
     public LocalDateTime value14() {
-        return getUpdatetime();
+        return getCreatetime();
     }
 
     @Override
     public Long value15() {
-        return getEnrolluser();
+        return getCreateuser();
+    }
+
+    @Override
+    public LocalDateTime value16() {
+        return getUpdatetime();
+    }
+
+    @Override
+    public LocalDateTime value17() {
+        return getUpdateuser();
     }
 
     @Override
@@ -510,7 +572,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
 
     @Override
     public VRecordRecord value2(String value) {
-        setCode(value);
+        setUsername(value);
         return this;
     }
 
@@ -575,25 +637,37 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     }
 
     @Override
-    public VRecordRecord value13(LocalDateTime value) {
-        setCreatetime(value);
+    public VRecordRecord value13(Boolean value) {
+        setStatus(value);
         return this;
     }
 
     @Override
     public VRecordRecord value14(LocalDateTime value) {
-        setUpdatetime(value);
+        setCreatetime(value);
         return this;
     }
 
     @Override
     public VRecordRecord value15(Long value) {
-        setEnrolluser(value);
+        setCreateuser(value);
         return this;
     }
 
     @Override
-    public VRecordRecord values(Long value1, String value2, String value3, String value4, String value5, Long value6, String value7, String value8, String value9, String value10, String value11, Long value12, LocalDateTime value13, LocalDateTime value14, Long value15) {
+    public VRecordRecord value16(LocalDateTime value) {
+        setUpdatetime(value);
+        return this;
+    }
+
+    @Override
+    public VRecordRecord value17(LocalDateTime value) {
+        setUpdateuser(value);
+        return this;
+    }
+
+    @Override
+    public VRecordRecord values(Long value1, String value2, String value3, String value4, String value5, Long value6, String value7, String value8, String value9, String value10, String value11, Long value12, Boolean value13, LocalDateTime value14, Long value15, LocalDateTime value16, LocalDateTime value17) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -609,6 +683,8 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
         value13(value13);
         value14(value14);
         value15(value15);
+        value16(value16);
+        value17(value17);
         return this;
     }
 
@@ -619,7 +695,7 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     @Override
     public void from(IVRecord from) {
         setId(from.getId());
-        setCode(from.getCode());
+        setUsername(from.getUsername());
         setInvitelink(from.getInvitelink());
         setTitle(from.getTitle());
         setRemark(from.getRemark());
@@ -630,9 +706,11 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
         setClassification(from.getClassification());
         setClassificationname(from.getClassificationname());
         setPlacardid(from.getPlacardid());
+        setStatus(from.getStatus());
         setCreatetime(from.getCreatetime());
+        setCreateuser(from.getCreateuser());
         setUpdatetime(from.getUpdatetime());
-        setEnrolluser(from.getEnrolluser());
+        setUpdateuser(from.getUpdateuser());
     }
 
     @Override
@@ -655,11 +733,11 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
     /**
      * Create a detached, initialised VRecordRecord
      */
-    public VRecordRecord(Long id, String code, String invitelink, String title, String remark, Long membernumber, String tag, String type, String typename, String classification, String classificationname, Long placardid, LocalDateTime createtime, LocalDateTime updatetime, Long enrolluser) {
+    public VRecordRecord(Long id, String username, String invitelink, String title, String remark, Long membernumber, String tag, String type, String typename, String classification, String classificationname, Long placardid, Boolean status, LocalDateTime createtime, Long createuser, LocalDateTime updatetime, LocalDateTime updateuser) {
         super(VRecord.V_RECORD);
 
         set(0, id);
-        set(1, code);
+        set(1, username);
         set(2, invitelink);
         set(3, title);
         set(4, remark);
@@ -670,8 +748,10 @@ public class VRecordRecord extends TableRecordImpl<VRecordRecord> implements Rec
         set(9, classification);
         set(10, classificationname);
         set(11, placardid);
-        set(12, createtime);
-        set(13, updatetime);
-        set(14, enrolluser);
+        set(12, status);
+        set(13, createtime);
+        set(14, createuser);
+        set(15, updatetime);
+        set(16, updateuser);
     }
 }

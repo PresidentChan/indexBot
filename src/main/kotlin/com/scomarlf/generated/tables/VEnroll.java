@@ -28,7 +28,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class VEnroll extends TableImpl<VEnrollRecord> {
 
-    private static final long serialVersionUID = -108164941;
+    private static final long serialVersionUID = -1153459902;
 
     /**
      * The reference instance of <code>indexBot.v_enroll</code>
@@ -49,24 +49,19 @@ public class VEnroll extends TableImpl<VEnrollRecord> {
     public final TableField<VEnrollRecord, String> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "主键");
 
     /**
-     * The column <code>indexBot.v_enroll.userId</code>. 用户ID
+     * The column <code>indexBot.v_enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public final TableField<VEnrollRecord, Long> USERID = createField(DSL.name("userId"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
+    public final TableField<VEnrollRecord, Long> RECORDID = createField(DSL.name("recordId"), org.jooq.impl.SQLDataType.BIGINT, this, "频道/群组/bot  ID");
 
     /**
-     * The column <code>indexBot.v_enroll.channelId</code>. 申请频道ID
+     * The column <code>indexBot.v_enroll.username</code>. 频道\群组\机器人 username
      */
-    public final TableField<VEnrollRecord, Long> CHANNELID = createField(DSL.name("channelId"), org.jooq.impl.SQLDataType.BIGINT, this, "申请频道ID");
+    public final TableField<VEnrollRecord, String> USERNAME = createField(DSL.name("username"), org.jooq.impl.SQLDataType.VARCHAR(150), this, "频道\\群组\\机器人 username");
 
     /**
-     * The column <code>indexBot.v_enroll.channelCode</code>. 申请频道 username
+     * The column <code>indexBot.v_enroll.inviteLink</code>. 私有链接
      */
-    public final TableField<VEnrollRecord, String> CHANNELCODE = createField(DSL.name("channelCode"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "申请频道 username");
-
-    /**
-     * The column <code>indexBot.v_enroll.inviteLink</code>. 申请频道私有链接
-     */
-    public final TableField<VEnrollRecord, String> INVITELINK = createField(DSL.name("inviteLink"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "申请频道私有链接");
+    public final TableField<VEnrollRecord, String> INVITELINK = createField(DSL.name("inviteLink"), org.jooq.impl.SQLDataType.VARCHAR(150), this, "私有链接");
 
     /**
      * The column <code>indexBot.v_enroll.title</code>. 名称
@@ -79,9 +74,19 @@ public class VEnroll extends TableImpl<VEnrollRecord> {
     public final TableField<VEnrollRecord, String> REMARK = createField(DSL.name("remark"), org.jooq.impl.SQLDataType.CLOB, this, "简介");
 
     /**
+     * The column <code>indexBot.v_enroll.memberNumber</code>. 成员数量
+     */
+    public final TableField<VEnrollRecord, Long> MEMBERNUMBER = createField(DSL.name("memberNumber"), org.jooq.impl.SQLDataType.BIGINT, this, "成员数量");
+
+    /**
      * The column <code>indexBot.v_enroll.tag</code>. 标签
      */
     public final TableField<VEnrollRecord, String> TAG = createField(DSL.name("tag"), org.jooq.impl.SQLDataType.VARCHAR(200), this, "标签");
+
+    /**
+     * The column <code>indexBot.v_enroll.type</code>. 收录类型 字典-recordType   频道\群组\机器人
+     */
+    public final TableField<VEnrollRecord, String> TYPE = createField(DSL.name("type"), org.jooq.impl.SQLDataType.VARCHAR(20), this, "收录类型 字典-recordType   频道\\群组\\机器人");
 
     /**
      * The column <code>indexBot.v_enroll.classification</code>. 分类
@@ -89,34 +94,29 @@ public class VEnroll extends TableImpl<VEnrollRecord> {
     public final TableField<VEnrollRecord, String> CLASSIFICATION = createField(DSL.name("classification"), org.jooq.impl.SQLDataType.VARCHAR(10), this, "分类");
 
     /**
-     * The column <code>indexBot.v_enroll.classificationName</code>. 名
+     * The column <code>indexBot.v_enroll.placardId</code>. 公告ID
      */
-    public final TableField<VEnrollRecord, String> CLASSIFICATIONNAME = createField(DSL.name("classificationName"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "名");
+    public final TableField<VEnrollRecord, Long> PLACARDID = createField(DSL.name("placardId"), org.jooq.impl.SQLDataType.BIGINT, this, "公告ID");
 
     /**
-     * The column <code>indexBot.v_enroll.time</code>. 申请时间
+     * The column <code>indexBot.v_enroll.recordStatus</code>. 是否展示
      */
-    public final TableField<VEnrollRecord, LocalDateTime> TIME = createField(DSL.name("time"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "申请时间");
+    public final TableField<VEnrollRecord, Boolean> RECORDSTATUS = createField(DSL.name("recordStatus"), org.jooq.impl.SQLDataType.BIT, this, "是否展示");
 
     /**
-     * The column <code>indexBot.v_enroll.enrollStatus</code>. 是否提交
+     * The column <code>indexBot.v_enroll.status</code>. 是否提交
      */
-    public final TableField<VEnrollRecord, Boolean> ENROLLSTATUS = createField(DSL.name("enrollStatus"), org.jooq.impl.SQLDataType.BIT, this, "是否提交");
+    public final TableField<VEnrollRecord, Boolean> STATUS = createField(DSL.name("status"), org.jooq.impl.SQLDataType.BIT, this, "是否提交");
 
     /**
-     * The column <code>indexBot.v_enroll.approveUserId</code>. 用户ID
+     * The column <code>indexBot.v_enroll.createUser</code>. 用户ID
      */
-    public final TableField<VEnrollRecord, Long> APPROVEUSERID = createField(DSL.name("approveUserId"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
+    public final TableField<VEnrollRecord, Long> CREATEUSER = createField(DSL.name("createUser"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
 
     /**
-     * The column <code>indexBot.v_enroll.approveTime</code>. 审核时间
+     * The column <code>indexBot.v_enroll.createTime</code>. 申请时间
      */
-    public final TableField<VEnrollRecord, LocalDateTime> APPROVETIME = createField(DSL.name("approveTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "审核时间");
-
-    /**
-     * The column <code>indexBot.v_enroll.approveStatus</code>. 审核状态 通过不通过
-     */
-    public final TableField<VEnrollRecord, Boolean> APPROVESTATUS = createField(DSL.name("approveStatus"), org.jooq.impl.SQLDataType.BIT, this, "审核状态 通过不通过");
+    public final TableField<VEnrollRecord, LocalDateTime> CREATETIME = createField(DSL.name("createTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "申请时间");
 
     /**
      * Create a <code>indexBot.v_enroll</code> table reference
@@ -144,7 +144,7 @@ public class VEnroll extends TableImpl<VEnrollRecord> {
     }
 
     private VEnroll(Name alias, Table<VEnrollRecord> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `v_enroll` as select `e`.`id` AS `id`,`e`.`userId` AS `userId`,`e`.`channelId` AS `channelId`,`e`.`channelCode` AS `channelCode`,`e`.`inviteLink` AS `inviteLink`,`e`.`title` AS `title`,`e`.`remark` AS `remark`,`e`.`tag` AS `tag`,`e`.`classification` AS `classification`,`d`.`label` AS `classificationName`,`e`.`time` AS `time`,`e`.`status` AS `enrollStatus`,`a`.`userId` AS `approveUserId`,`a`.`time` AS `approveTime`,`a`.`status` AS `approveStatus` from ((`indexBot`.`enroll` `e` left join `indexBot`.`approve` `a` on((`e`.`id` = `a`.`enrollId`))) left join `indexBot`.`dictionary` `d` on((`e`.`classification` = `d`.`id`)))"));
+        super(alias, null, aliased, parameters, DSL.comment("VIEW"), TableOptions.view("create view `v_enroll` as select `e`.`id` AS `id`,`e`.`recordId` AS `recordId`,`r`.`username` AS `username`,`r`.`inviteLink` AS `inviteLink`,`r`.`title` AS `title`,`r`.`remark` AS `remark`,`r`.`memberNumber` AS `memberNumber`,`r`.`tag` AS `tag`,`r`.`type` AS `type`,`r`.`classification` AS `classification`,`r`.`placardId` AS `placardId`,`r`.`status` AS `recordStatus`,`e`.`status` AS `status`,`e`.`createUser` AS `createUser`,`e`.`createTime` AS `createTime` from (`indexBot`.`enroll` `e` left join `indexBot`.`record` `r` on((`e`.`recordId` = `r`.`id`)))"));
     }
 
     public <O extends Record> VEnroll(Table<O> child, ForeignKey<O, VEnrollRecord> key) {
@@ -187,7 +187,7 @@ public class VEnroll extends TableImpl<VEnrollRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<String, Long, Long, String, String, String, String, String, String, String, LocalDateTime, Boolean, Long, LocalDateTime, Boolean> fieldsRow() {
+    public Row15<String, Long, String, String, String, String, Long, String, String, String, Long, Boolean, Boolean, Long, LocalDateTime> fieldsRow() {
         return (Row15) super.fieldsRow();
     }
 }

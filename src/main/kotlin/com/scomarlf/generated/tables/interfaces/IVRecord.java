@@ -25,14 +25,14 @@ public interface IVRecord extends Serializable {
     public Long getId();
 
     /**
-     * Setter for <code>indexBot.v_record.code</code>. 频道\群组\机器人 username
+     * Setter for <code>indexBot.v_record.username</code>. 频道\群组\机器人 username
      */
-    public void setCode(String value);
+    public void setUsername(String value);
 
     /**
-     * Getter for <code>indexBot.v_record.code</code>. 频道\群组\机器人 username
+     * Getter for <code>indexBot.v_record.username</code>. 频道\群组\机器人 username
      */
-    public String getCode();
+    public String getUsername();
 
     /**
      * Setter for <code>indexBot.v_record.inviteLink</code>. 私有链接
@@ -95,12 +95,12 @@ public interface IVRecord extends Serializable {
     public String getType();
 
     /**
-     * Setter for <code>indexBot.v_record.typeName</code>. 名
+     * Setter for <code>indexBot.v_record.typeName</code>.
      */
     public void setTypename(String value);
 
     /**
-     * Getter for <code>indexBot.v_record.typeName</code>. 名
+     * Getter for <code>indexBot.v_record.typeName</code>.
      */
     public String getTypename();
 
@@ -115,12 +115,12 @@ public interface IVRecord extends Serializable {
     public String getClassification();
 
     /**
-     * Setter for <code>indexBot.v_record.classificationName</code>. 名
+     * Setter for <code>indexBot.v_record.classificationName</code>.
      */
     public void setClassificationname(String value);
 
     /**
-     * Getter for <code>indexBot.v_record.classificationName</code>. 名
+     * Getter for <code>indexBot.v_record.classificationName</code>.
      */
     public String getClassificationname();
 
@@ -135,6 +135,16 @@ public interface IVRecord extends Serializable {
     public Long getPlacardid();
 
     /**
+     * Setter for <code>indexBot.v_record.status</code>. 是否展示
+     */
+    public void setStatus(Boolean value);
+
+    /**
+     * Getter for <code>indexBot.v_record.status</code>. 是否展示
+     */
+    public Boolean getStatus();
+
+    /**
      * Setter for <code>indexBot.v_record.createTime</code>. 创建时间
      */
     public void setCreatetime(LocalDateTime value);
@@ -143,6 +153,16 @@ public interface IVRecord extends Serializable {
      * Getter for <code>indexBot.v_record.createTime</code>. 创建时间
      */
     public LocalDateTime getCreatetime();
+
+    /**
+     * Setter for <code>indexBot.v_record.createUser</code>. 提交收录申请用户
+     */
+    public void setCreateuser(Long value);
+
+    /**
+     * Getter for <code>indexBot.v_record.createUser</code>. 提交收录申请用户
+     */
+    public Long getCreateuser();
 
     /**
      * Setter for <code>indexBot.v_record.updateTime</code>. 更新时间
@@ -155,14 +175,14 @@ public interface IVRecord extends Serializable {
     public LocalDateTime getUpdatetime();
 
     /**
-     * Setter for <code>indexBot.v_record.enrollUser</code>. 提交收录申请用户
+     * Setter for <code>indexBot.v_record.updateUser</code>. 修改用户
      */
-    public void setEnrolluser(Long value);
+    public void setUpdateuser(LocalDateTime value);
 
     /**
-     * Getter for <code>indexBot.v_record.enrollUser</code>. 提交收录申请用户
+     * Getter for <code>indexBot.v_record.updateUser</code>. 修改用户
      */
-    public Long getEnrolluser();
+    public LocalDateTime getUpdateuser();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

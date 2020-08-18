@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Approve extends TableImpl<ApproveRecord> {
 
-    private static final long serialVersionUID = -1686246494;
+    private static final long serialVersionUID = -47993775;
 
     /**
      * The reference instance of <code>indexBot.approve</code>
@@ -58,19 +58,19 @@ public class Approve extends TableImpl<ApproveRecord> {
     public final TableField<ApproveRecord, String> ENROLLID = createField(DSL.name("enrollId"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "申请ID");
 
     /**
-     * The column <code>indexBot.approve.userId</code>. 用户ID
-     */
-    public final TableField<ApproveRecord, Long> USERID = createField(DSL.name("userId"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
-
-    /**
-     * The column <code>indexBot.approve.time</code>. 审核时间
-     */
-    public final TableField<ApproveRecord, LocalDateTime> TIME = createField(DSL.name("time"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "审核时间");
-
-    /**
      * The column <code>indexBot.approve.status</code>. 审核状态 通过不通过
      */
     public final TableField<ApproveRecord, Boolean> STATUS = createField(DSL.name("status"), org.jooq.impl.SQLDataType.BIT, this, "审核状态 通过不通过");
+
+    /**
+     * The column <code>indexBot.approve.createUser</code>. 用户ID
+     */
+    public final TableField<ApproveRecord, Long> CREATEUSER = createField(DSL.name("createUser"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
+
+    /**
+     * The column <code>indexBot.approve.createTime</code>. 审核时间
+     */
+    public final TableField<ApproveRecord, LocalDateTime> CREATETIME = createField(DSL.name("createTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "审核时间");
 
     /**
      * Create a <code>indexBot.approve</code> table reference
@@ -151,7 +151,7 @@ public class Approve extends TableImpl<ApproveRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<String, String, Long, LocalDateTime, Boolean> fieldsRow() {
+    public Row5<String, String, Boolean, Long, LocalDateTime> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 }

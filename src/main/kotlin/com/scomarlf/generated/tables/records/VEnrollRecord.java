@@ -19,9 +19,9 @@ import org.jooq.impl.TableRecordImpl;
  * VIEW
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
-public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Record15<String, Long, Long, String, String, String, String, String, String, String, LocalDateTime, Boolean, Long, LocalDateTime, Boolean>, IVEnroll {
+public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Record15<String, Long, String, String, String, String, Long, String, String, String, Long, Boolean, Boolean, Long, LocalDateTime>, IVEnroll {
 
-    private static final long serialVersionUID = -1205777273;
+    private static final long serialVersionUID = -590337771;
 
     /**
      * Setter for <code>indexBot.v_enroll.id</code>. 主键
@@ -40,67 +40,51 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.userId</code>. 用户ID
+     * Setter for <code>indexBot.v_enroll.recordId</code>. 频道/群组/bot  ID
      */
     @Override
-    public void setUserid(Long value) {
+    public void setRecordid(Long value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.userId</code>. 用户ID
+     * Getter for <code>indexBot.v_enroll.recordId</code>. 频道/群组/bot  ID
      */
     @Override
-    public Long getUserid() {
+    public Long getRecordid() {
         return (Long) get(1);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.channelId</code>. 申请频道ID
+     * Setter for <code>indexBot.v_enroll.username</code>. 频道\群组\机器人 username
      */
     @Override
-    public void setChannelid(Long value) {
+    public void setUsername(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.channelId</code>. 申请频道ID
+     * Getter for <code>indexBot.v_enroll.username</code>. 频道\群组\机器人 username
      */
     @Override
-    public Long getChannelid() {
-        return (Long) get(2);
+    public String getUsername() {
+        return (String) get(2);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.channelCode</code>. 申请频道 username
+     * Setter for <code>indexBot.v_enroll.inviteLink</code>. 私有链接
      */
     @Override
-    public void setChannelcode(String value) {
+    public void setInvitelink(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.channelCode</code>. 申请频道 username
-     */
-    @Override
-    public String getChannelcode() {
-        return (String) get(3);
-    }
-
-    /**
-     * Setter for <code>indexBot.v_enroll.inviteLink</code>. 申请频道私有链接
-     */
-    @Override
-    public void setInvitelink(String value) {
-        set(4, value);
-    }
-
-    /**
-     * Getter for <code>indexBot.v_enroll.inviteLink</code>. 申请频道私有链接
+     * Getter for <code>indexBot.v_enroll.inviteLink</code>. 私有链接
      */
     @Override
     public String getInvitelink() {
-        return (String) get(4);
+        return (String) get(3);
     }
 
     /**
@@ -108,7 +92,7 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
      */
     @Override
     public void setTitle(String value) {
-        set(5, value);
+        set(4, value);
     }
 
     /**
@@ -116,7 +100,7 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
      */
     @Override
     public String getTitle() {
-        return (String) get(5);
+        return (String) get(4);
     }
 
     /**
@@ -124,7 +108,7 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
      */
     @Override
     public void setRemark(String value) {
-        set(6, value);
+        set(5, value);
     }
 
     /**
@@ -132,7 +116,23 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
      */
     @Override
     public String getRemark() {
-        return (String) get(6);
+        return (String) get(5);
+    }
+
+    /**
+     * Setter for <code>indexBot.v_enroll.memberNumber</code>. 成员数量
+     */
+    @Override
+    public void setMembernumber(Long value) {
+        set(6, value);
+    }
+
+    /**
+     * Getter for <code>indexBot.v_enroll.memberNumber</code>. 成员数量
+     */
+    @Override
+    public Long getMembernumber() {
+        return (Long) get(6);
     }
 
     /**
@@ -152,11 +152,27 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
     }
 
     /**
+     * Setter for <code>indexBot.v_enroll.type</code>. 收录类型 字典-recordType   频道\群组\机器人
+     */
+    @Override
+    public void setType(String value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>indexBot.v_enroll.type</code>. 收录类型 字典-recordType   频道\群组\机器人
+     */
+    @Override
+    public String getType() {
+        return (String) get(8);
+    }
+
+    /**
      * Setter for <code>indexBot.v_enroll.classification</code>. 分类
      */
     @Override
     public void setClassification(String value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
@@ -164,103 +180,87 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
      */
     @Override
     public String getClassification() {
-        return (String) get(8);
-    }
-
-    /**
-     * Setter for <code>indexBot.v_enroll.classificationName</code>. 名
-     */
-    @Override
-    public void setClassificationname(String value) {
-        set(9, value);
-    }
-
-    /**
-     * Getter for <code>indexBot.v_enroll.classificationName</code>. 名
-     */
-    @Override
-    public String getClassificationname() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.time</code>. 申请时间
+     * Setter for <code>indexBot.v_enroll.placardId</code>. 公告ID
      */
     @Override
-    public void setTime(LocalDateTime value) {
+    public void setPlacardid(Long value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.time</code>. 申请时间
+     * Getter for <code>indexBot.v_enroll.placardId</code>. 公告ID
      */
     @Override
-    public LocalDateTime getTime() {
-        return (LocalDateTime) get(10);
+    public Long getPlacardid() {
+        return (Long) get(10);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.enrollStatus</code>. 是否提交
+     * Setter for <code>indexBot.v_enroll.recordStatus</code>. 是否展示
      */
     @Override
-    public void setEnrollstatus(Boolean value) {
+    public void setRecordstatus(Boolean value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.enrollStatus</code>. 是否提交
+     * Getter for <code>indexBot.v_enroll.recordStatus</code>. 是否展示
      */
     @Override
-    public Boolean getEnrollstatus() {
+    public Boolean getRecordstatus() {
         return (Boolean) get(11);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.approveUserId</code>. 用户ID
+     * Setter for <code>indexBot.v_enroll.status</code>. 是否提交
      */
     @Override
-    public void setApproveuserid(Long value) {
+    public void setStatus(Boolean value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.approveUserId</code>. 用户ID
+     * Getter for <code>indexBot.v_enroll.status</code>. 是否提交
      */
     @Override
-    public Long getApproveuserid() {
-        return (Long) get(12);
+    public Boolean getStatus() {
+        return (Boolean) get(12);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.approveTime</code>. 审核时间
+     * Setter for <code>indexBot.v_enroll.createUser</code>. 用户ID
      */
     @Override
-    public void setApprovetime(LocalDateTime value) {
+    public void setCreateuser(Long value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.approveTime</code>. 审核时间
+     * Getter for <code>indexBot.v_enroll.createUser</code>. 用户ID
      */
     @Override
-    public LocalDateTime getApprovetime() {
-        return (LocalDateTime) get(13);
+    public Long getCreateuser() {
+        return (Long) get(13);
     }
 
     /**
-     * Setter for <code>indexBot.v_enroll.approveStatus</code>. 审核状态 通过不通过
+     * Setter for <code>indexBot.v_enroll.createTime</code>. 申请时间
      */
     @Override
-    public void setApprovestatus(Boolean value) {
+    public void setCreatetime(LocalDateTime value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>indexBot.v_enroll.approveStatus</code>. 审核状态 通过不通过
+     * Getter for <code>indexBot.v_enroll.createTime</code>. 申请时间
      */
     @Override
-    public Boolean getApprovestatus() {
-        return (Boolean) get(14);
+    public LocalDateTime getCreatetime() {
+        return (LocalDateTime) get(14);
     }
 
     // -------------------------------------------------------------------------
@@ -268,12 +268,12 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
     // -------------------------------------------------------------------------
 
     @Override
-    public Row15<String, Long, Long, String, String, String, String, String, String, String, LocalDateTime, Boolean, Long, LocalDateTime, Boolean> fieldsRow() {
+    public Row15<String, Long, String, String, String, String, Long, String, String, String, Long, Boolean, Boolean, Long, LocalDateTime> fieldsRow() {
         return (Row15) super.fieldsRow();
     }
 
     @Override
-    public Row15<String, Long, Long, String, String, String, String, String, String, String, LocalDateTime, Boolean, Long, LocalDateTime, Boolean> valuesRow() {
+    public Row15<String, Long, String, String, String, String, Long, String, String, String, Long, Boolean, Boolean, Long, LocalDateTime> valuesRow() {
         return (Row15) super.valuesRow();
     }
 
@@ -284,32 +284,32 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public Field<Long> field2() {
-        return VEnroll.V_ENROLL.USERID;
+        return VEnroll.V_ENROLL.RECORDID;
     }
 
     @Override
-    public Field<Long> field3() {
-        return VEnroll.V_ENROLL.CHANNELID;
+    public Field<String> field3() {
+        return VEnroll.V_ENROLL.USERNAME;
     }
 
     @Override
     public Field<String> field4() {
-        return VEnroll.V_ENROLL.CHANNELCODE;
-    }
-
-    @Override
-    public Field<String> field5() {
         return VEnroll.V_ENROLL.INVITELINK;
     }
 
     @Override
-    public Field<String> field6() {
+    public Field<String> field5() {
         return VEnroll.V_ENROLL.TITLE;
     }
 
     @Override
-    public Field<String> field7() {
+    public Field<String> field6() {
         return VEnroll.V_ENROLL.REMARK;
+    }
+
+    @Override
+    public Field<Long> field7() {
+        return VEnroll.V_ENROLL.MEMBERNUMBER;
     }
 
     @Override
@@ -319,37 +319,37 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public Field<String> field9() {
-        return VEnroll.V_ENROLL.CLASSIFICATION;
+        return VEnroll.V_ENROLL.TYPE;
     }
 
     @Override
     public Field<String> field10() {
-        return VEnroll.V_ENROLL.CLASSIFICATIONNAME;
+        return VEnroll.V_ENROLL.CLASSIFICATION;
     }
 
     @Override
-    public Field<LocalDateTime> field11() {
-        return VEnroll.V_ENROLL.TIME;
+    public Field<Long> field11() {
+        return VEnroll.V_ENROLL.PLACARDID;
     }
 
     @Override
     public Field<Boolean> field12() {
-        return VEnroll.V_ENROLL.ENROLLSTATUS;
+        return VEnroll.V_ENROLL.RECORDSTATUS;
     }
 
     @Override
-    public Field<Long> field13() {
-        return VEnroll.V_ENROLL.APPROVEUSERID;
+    public Field<Boolean> field13() {
+        return VEnroll.V_ENROLL.STATUS;
     }
 
     @Override
-    public Field<LocalDateTime> field14() {
-        return VEnroll.V_ENROLL.APPROVETIME;
+    public Field<Long> field14() {
+        return VEnroll.V_ENROLL.CREATEUSER;
     }
 
     @Override
-    public Field<Boolean> field15() {
-        return VEnroll.V_ENROLL.APPROVESTATUS;
+    public Field<LocalDateTime> field15() {
+        return VEnroll.V_ENROLL.CREATETIME;
     }
 
     @Override
@@ -359,32 +359,32 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public Long component2() {
-        return getUserid();
+        return getRecordid();
     }
 
     @Override
-    public Long component3() {
-        return getChannelid();
+    public String component3() {
+        return getUsername();
     }
 
     @Override
     public String component4() {
-        return getChannelcode();
-    }
-
-    @Override
-    public String component5() {
         return getInvitelink();
     }
 
     @Override
-    public String component6() {
+    public String component5() {
         return getTitle();
     }
 
     @Override
-    public String component7() {
+    public String component6() {
         return getRemark();
+    }
+
+    @Override
+    public Long component7() {
+        return getMembernumber();
     }
 
     @Override
@@ -394,37 +394,37 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public String component9() {
-        return getClassification();
+        return getType();
     }
 
     @Override
     public String component10() {
-        return getClassificationname();
+        return getClassification();
     }
 
     @Override
-    public LocalDateTime component11() {
-        return getTime();
+    public Long component11() {
+        return getPlacardid();
     }
 
     @Override
     public Boolean component12() {
-        return getEnrollstatus();
+        return getRecordstatus();
     }
 
     @Override
-    public Long component13() {
-        return getApproveuserid();
+    public Boolean component13() {
+        return getStatus();
     }
 
     @Override
-    public LocalDateTime component14() {
-        return getApprovetime();
+    public Long component14() {
+        return getCreateuser();
     }
 
     @Override
-    public Boolean component15() {
-        return getApprovestatus();
+    public LocalDateTime component15() {
+        return getCreatetime();
     }
 
     @Override
@@ -434,32 +434,32 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public Long value2() {
-        return getUserid();
+        return getRecordid();
     }
 
     @Override
-    public Long value3() {
-        return getChannelid();
+    public String value3() {
+        return getUsername();
     }
 
     @Override
     public String value4() {
-        return getChannelcode();
-    }
-
-    @Override
-    public String value5() {
         return getInvitelink();
     }
 
     @Override
-    public String value6() {
+    public String value5() {
         return getTitle();
     }
 
     @Override
-    public String value7() {
+    public String value6() {
         return getRemark();
+    }
+
+    @Override
+    public Long value7() {
+        return getMembernumber();
     }
 
     @Override
@@ -469,37 +469,37 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public String value9() {
-        return getClassification();
+        return getType();
     }
 
     @Override
     public String value10() {
-        return getClassificationname();
+        return getClassification();
     }
 
     @Override
-    public LocalDateTime value11() {
-        return getTime();
+    public Long value11() {
+        return getPlacardid();
     }
 
     @Override
     public Boolean value12() {
-        return getEnrollstatus();
+        return getRecordstatus();
     }
 
     @Override
-    public Long value13() {
-        return getApproveuserid();
+    public Boolean value13() {
+        return getStatus();
     }
 
     @Override
-    public LocalDateTime value14() {
-        return getApprovetime();
+    public Long value14() {
+        return getCreateuser();
     }
 
     @Override
-    public Boolean value15() {
-        return getApprovestatus();
+    public LocalDateTime value15() {
+        return getCreatetime();
     }
 
     @Override
@@ -510,37 +510,37 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public VEnrollRecord value2(Long value) {
-        setUserid(value);
+        setRecordid(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value3(Long value) {
-        setChannelid(value);
+    public VEnrollRecord value3(String value) {
+        setUsername(value);
         return this;
     }
 
     @Override
     public VEnrollRecord value4(String value) {
-        setChannelcode(value);
-        return this;
-    }
-
-    @Override
-    public VEnrollRecord value5(String value) {
         setInvitelink(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value6(String value) {
+    public VEnrollRecord value5(String value) {
         setTitle(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value7(String value) {
+    public VEnrollRecord value6(String value) {
         setRemark(value);
+        return this;
+    }
+
+    @Override
+    public VEnrollRecord value7(Long value) {
+        setMembernumber(value);
         return this;
     }
 
@@ -552,48 +552,48 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
 
     @Override
     public VEnrollRecord value9(String value) {
-        setClassification(value);
+        setType(value);
         return this;
     }
 
     @Override
     public VEnrollRecord value10(String value) {
-        setClassificationname(value);
+        setClassification(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value11(LocalDateTime value) {
-        setTime(value);
+    public VEnrollRecord value11(Long value) {
+        setPlacardid(value);
         return this;
     }
 
     @Override
     public VEnrollRecord value12(Boolean value) {
-        setEnrollstatus(value);
+        setRecordstatus(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value13(Long value) {
-        setApproveuserid(value);
+    public VEnrollRecord value13(Boolean value) {
+        setStatus(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value14(LocalDateTime value) {
-        setApprovetime(value);
+    public VEnrollRecord value14(Long value) {
+        setCreateuser(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord value15(Boolean value) {
-        setApprovestatus(value);
+    public VEnrollRecord value15(LocalDateTime value) {
+        setCreatetime(value);
         return this;
     }
 
     @Override
-    public VEnrollRecord values(String value1, Long value2, Long value3, String value4, String value5, String value6, String value7, String value8, String value9, String value10, LocalDateTime value11, Boolean value12, Long value13, LocalDateTime value14, Boolean value15) {
+    public VEnrollRecord values(String value1, Long value2, String value3, String value4, String value5, String value6, Long value7, String value8, String value9, String value10, Long value11, Boolean value12, Boolean value13, Long value14, LocalDateTime value15) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -619,20 +619,20 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
     @Override
     public void from(IVEnroll from) {
         setId(from.getId());
-        setUserid(from.getUserid());
-        setChannelid(from.getChannelid());
-        setChannelcode(from.getChannelcode());
+        setRecordid(from.getRecordid());
+        setUsername(from.getUsername());
         setInvitelink(from.getInvitelink());
         setTitle(from.getTitle());
         setRemark(from.getRemark());
+        setMembernumber(from.getMembernumber());
         setTag(from.getTag());
+        setType(from.getType());
         setClassification(from.getClassification());
-        setClassificationname(from.getClassificationname());
-        setTime(from.getTime());
-        setEnrollstatus(from.getEnrollstatus());
-        setApproveuserid(from.getApproveuserid());
-        setApprovetime(from.getApprovetime());
-        setApprovestatus(from.getApprovestatus());
+        setPlacardid(from.getPlacardid());
+        setRecordstatus(from.getRecordstatus());
+        setStatus(from.getStatus());
+        setCreateuser(from.getCreateuser());
+        setCreatetime(from.getCreatetime());
     }
 
     @Override
@@ -655,23 +655,23 @@ public class VEnrollRecord extends TableRecordImpl<VEnrollRecord> implements Rec
     /**
      * Create a detached, initialised VEnrollRecord
      */
-    public VEnrollRecord(String id, Long userid, Long channelid, String channelcode, String invitelink, String title, String remark, String tag, String classification, String classificationname, LocalDateTime time, Boolean enrollstatus, Long approveuserid, LocalDateTime approvetime, Boolean approvestatus) {
+    public VEnrollRecord(String id, Long recordid, String username, String invitelink, String title, String remark, Long membernumber, String tag, String type, String classification, Long placardid, Boolean recordstatus, Boolean status, Long createuser, LocalDateTime createtime) {
         super(VEnroll.V_ENROLL);
 
         set(0, id);
-        set(1, userid);
-        set(2, channelid);
-        set(3, channelcode);
-        set(4, invitelink);
-        set(5, title);
-        set(6, remark);
+        set(1, recordid);
+        set(2, username);
+        set(3, invitelink);
+        set(4, title);
+        set(5, remark);
+        set(6, membernumber);
         set(7, tag);
-        set(8, classification);
-        set(9, classificationname);
-        set(10, time);
-        set(11, enrollstatus);
-        set(12, approveuserid);
-        set(13, approvetime);
-        set(14, approvestatus);
+        set(8, type);
+        set(9, classification);
+        set(10, placardid);
+        set(11, recordstatus);
+        set(12, status);
+        set(13, createuser);
+        set(14, createtime);
     }
 }

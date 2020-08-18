@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 933488986;
+    private static final long serialVersionUID = -820276760;
 
     /**
      * The reference instance of <code>indexBot.user</code>
@@ -78,9 +78,9 @@ public class User extends TableImpl<UserRecord> {
     public final TableField<UserRecord, LocalDateTime> CREATETIME = createField(DSL.name("createTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "创建时间");
 
     /**
-     * The column <code>indexBot.user.lastOper</code>. 最后一次操作的时间
+     * The column <code>indexBot.user.updateTime</code>. 最后一次操作的时间
      */
-    public final TableField<UserRecord, LocalDateTime> LASTOPER = createField(DSL.name("lastOper"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "最后一次操作的时间");
+    public final TableField<UserRecord, LocalDateTime> UPDATETIME = createField(DSL.name("updateTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "最后一次操作的时间");
 
     /**
      * Create a <code>indexBot.user</code> table reference

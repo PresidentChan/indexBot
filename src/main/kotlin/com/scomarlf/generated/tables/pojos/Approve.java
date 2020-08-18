@@ -15,36 +15,36 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Approve implements IApprove {
 
-    private static final long serialVersionUID = -1009640266;
+    private static final long serialVersionUID = 1139093427;
 
     private String        id;
     private String        enrollid;
-    private Long          userid;
-    private LocalDateTime time;
     private Boolean       status;
+    private Long          createuser;
+    private LocalDateTime createtime;
 
     public Approve() {}
 
     public Approve(IApprove value) {
         this.id = value.getId();
         this.enrollid = value.getEnrollid();
-        this.userid = value.getUserid();
-        this.time = value.getTime();
         this.status = value.getStatus();
+        this.createuser = value.getCreateuser();
+        this.createtime = value.getCreatetime();
     }
 
     public Approve(
         String        id,
         String        enrollid,
-        Long          userid,
-        LocalDateTime time,
-        Boolean       status
+        Boolean       status,
+        Long          createuser,
+        LocalDateTime createtime
     ) {
         this.id = id;
         this.enrollid = enrollid;
-        this.userid = userid;
-        this.time = time;
         this.status = status;
+        this.createuser = createuser;
+        this.createtime = createtime;
     }
 
     @Override
@@ -68,26 +68,6 @@ public class Approve implements IApprove {
     }
 
     @Override
-    public Long getUserid() {
-        return this.userid;
-    }
-
-    @Override
-    public void setUserid(Long userid) {
-        this.userid = userid;
-    }
-
-    @Override
-    public LocalDateTime getTime() {
-        return this.time;
-    }
-
-    @Override
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
-
-    @Override
     public Boolean getStatus() {
         return this.status;
     }
@@ -98,14 +78,34 @@ public class Approve implements IApprove {
     }
 
     @Override
+    public Long getCreateuser() {
+        return this.createuser;
+    }
+
+    @Override
+    public void setCreateuser(Long createuser) {
+        this.createuser = createuser;
+    }
+
+    @Override
+    public LocalDateTime getCreatetime() {
+        return this.createtime;
+    }
+
+    @Override
+    public void setCreatetime(LocalDateTime createtime) {
+        this.createtime = createtime;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Approve (");
 
         sb.append(id);
         sb.append(", ").append(enrollid);
-        sb.append(", ").append(userid);
-        sb.append(", ").append(time);
         sb.append(", ").append(status);
+        sb.append(", ").append(createuser);
+        sb.append(", ").append(createtime);
 
         sb.append(")");
         return sb.toString();
@@ -119,9 +119,9 @@ public class Approve implements IApprove {
     public void from(IApprove from) {
         setId(from.getId());
         setEnrollid(from.getEnrollid());
-        setUserid(from.getUserid());
-        setTime(from.getTime());
         setStatus(from.getStatus());
+        setCreateuser(from.getCreateuser());
+        setCreatetime(from.getCreatetime());
     }
 
     @Override

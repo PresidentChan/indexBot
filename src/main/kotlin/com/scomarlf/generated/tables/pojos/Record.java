@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Record implements IRecord {
 
-    private static final long serialVersionUID = -1466823607;
+    private static final long serialVersionUID = -1277753478;
 
     private Long          id;
-    private String        code;
+    private String        username;
     private String        invitelink;
     private String        title;
     private String        remark;
@@ -27,15 +27,17 @@ public class Record implements IRecord {
     private String        type;
     private String        classification;
     private Long          placardid;
+    private Boolean       status;
     private LocalDateTime createtime;
+    private Long          createuser;
     private LocalDateTime updatetime;
-    private Long          enrolluser;
+    private LocalDateTime updateuser;
 
     public Record() {}
 
     public Record(IRecord value) {
         this.id = value.getId();
-        this.code = value.getCode();
+        this.username = value.getUsername();
         this.invitelink = value.getInvitelink();
         this.title = value.getTitle();
         this.remark = value.getRemark();
@@ -44,14 +46,16 @@ public class Record implements IRecord {
         this.type = value.getType();
         this.classification = value.getClassification();
         this.placardid = value.getPlacardid();
+        this.status = value.getStatus();
         this.createtime = value.getCreatetime();
+        this.createuser = value.getCreateuser();
         this.updatetime = value.getUpdatetime();
-        this.enrolluser = value.getEnrolluser();
+        this.updateuser = value.getUpdateuser();
     }
 
     public Record(
         Long          id,
-        String        code,
+        String        username,
         String        invitelink,
         String        title,
         String        remark,
@@ -60,12 +64,14 @@ public class Record implements IRecord {
         String        type,
         String        classification,
         Long          placardid,
+        Boolean       status,
         LocalDateTime createtime,
+        Long          createuser,
         LocalDateTime updatetime,
-        Long          enrolluser
+        LocalDateTime updateuser
     ) {
         this.id = id;
-        this.code = code;
+        this.username = username;
         this.invitelink = invitelink;
         this.title = title;
         this.remark = remark;
@@ -74,9 +80,11 @@ public class Record implements IRecord {
         this.type = type;
         this.classification = classification;
         this.placardid = placardid;
+        this.status = status;
         this.createtime = createtime;
+        this.createuser = createuser;
         this.updatetime = updatetime;
-        this.enrolluser = enrolluser;
+        this.updateuser = updateuser;
     }
 
     @Override
@@ -90,13 +98,13 @@ public class Record implements IRecord {
     }
 
     @Override
-    public String getCode() {
-        return this.code;
+    public String getUsername() {
+        return this.username;
     }
 
     @Override
-    public void setCode(String code) {
-        this.code = code;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -180,6 +188,16 @@ public class Record implements IRecord {
     }
 
     @Override
+    public Boolean getStatus() {
+        return this.status;
+    }
+
+    @Override
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    @Override
     public LocalDateTime getCreatetime() {
         return this.createtime;
     }
@@ -187,6 +205,16 @@ public class Record implements IRecord {
     @Override
     public void setCreatetime(LocalDateTime createtime) {
         this.createtime = createtime;
+    }
+
+    @Override
+    public Long getCreateuser() {
+        return this.createuser;
+    }
+
+    @Override
+    public void setCreateuser(Long createuser) {
+        this.createuser = createuser;
     }
 
     @Override
@@ -200,13 +228,13 @@ public class Record implements IRecord {
     }
 
     @Override
-    public Long getEnrolluser() {
-        return this.enrolluser;
+    public LocalDateTime getUpdateuser() {
+        return this.updateuser;
     }
 
     @Override
-    public void setEnrolluser(Long enrolluser) {
-        this.enrolluser = enrolluser;
+    public void setUpdateuser(LocalDateTime updateuser) {
+        this.updateuser = updateuser;
     }
 
     @Override
@@ -214,7 +242,7 @@ public class Record implements IRecord {
         StringBuilder sb = new StringBuilder("Record (");
 
         sb.append(id);
-        sb.append(", ").append(code);
+        sb.append(", ").append(username);
         sb.append(", ").append(invitelink);
         sb.append(", ").append(title);
         sb.append(", ").append(remark);
@@ -223,9 +251,11 @@ public class Record implements IRecord {
         sb.append(", ").append(type);
         sb.append(", ").append(classification);
         sb.append(", ").append(placardid);
+        sb.append(", ").append(status);
         sb.append(", ").append(createtime);
+        sb.append(", ").append(createuser);
         sb.append(", ").append(updatetime);
-        sb.append(", ").append(enrolluser);
+        sb.append(", ").append(updateuser);
 
         sb.append(")");
         return sb.toString();
@@ -238,7 +268,7 @@ public class Record implements IRecord {
     @Override
     public void from(IRecord from) {
         setId(from.getId());
-        setCode(from.getCode());
+        setUsername(from.getUsername());
         setInvitelink(from.getInvitelink());
         setTitle(from.getTitle());
         setRemark(from.getRemark());
@@ -247,9 +277,11 @@ public class Record implements IRecord {
         setType(from.getType());
         setClassification(from.getClassification());
         setPlacardid(from.getPlacardid());
+        setStatus(from.getStatus());
         setCreatetime(from.getCreatetime());
+        setCreateuser(from.getCreateuser());
         setUpdatetime(from.getUpdatetime());
-        setEnrolluser(from.getEnrolluser());
+        setUpdateuser(from.getUpdateuser());
     }
 
     @Override

@@ -15,76 +15,76 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class VEnroll implements IVEnroll {
 
-    private static final long serialVersionUID = 864965673;
+    private static final long serialVersionUID = 202765711;
 
     private String        id;
-    private Long          userid;
-    private Long          channelid;
-    private String        channelcode;
+    private Long          recordid;
+    private String        username;
     private String        invitelink;
     private String        title;
     private String        remark;
+    private Long          membernumber;
     private String        tag;
+    private String        type;
     private String        classification;
-    private String        classificationname;
-    private LocalDateTime time;
-    private Boolean       enrollstatus;
-    private Long          approveuserid;
-    private LocalDateTime approvetime;
-    private Boolean       approvestatus;
+    private Long          placardid;
+    private Boolean       recordstatus;
+    private Boolean       status;
+    private Long          createuser;
+    private LocalDateTime createtime;
 
     public VEnroll() {}
 
     public VEnroll(IVEnroll value) {
         this.id = value.getId();
-        this.userid = value.getUserid();
-        this.channelid = value.getChannelid();
-        this.channelcode = value.getChannelcode();
+        this.recordid = value.getRecordid();
+        this.username = value.getUsername();
         this.invitelink = value.getInvitelink();
         this.title = value.getTitle();
         this.remark = value.getRemark();
+        this.membernumber = value.getMembernumber();
         this.tag = value.getTag();
+        this.type = value.getType();
         this.classification = value.getClassification();
-        this.classificationname = value.getClassificationname();
-        this.time = value.getTime();
-        this.enrollstatus = value.getEnrollstatus();
-        this.approveuserid = value.getApproveuserid();
-        this.approvetime = value.getApprovetime();
-        this.approvestatus = value.getApprovestatus();
+        this.placardid = value.getPlacardid();
+        this.recordstatus = value.getRecordstatus();
+        this.status = value.getStatus();
+        this.createuser = value.getCreateuser();
+        this.createtime = value.getCreatetime();
     }
 
     public VEnroll(
         String        id,
-        Long          userid,
-        Long          channelid,
-        String        channelcode,
+        Long          recordid,
+        String        username,
         String        invitelink,
         String        title,
         String        remark,
+        Long          membernumber,
         String        tag,
+        String        type,
         String        classification,
-        String        classificationname,
-        LocalDateTime time,
-        Boolean       enrollstatus,
-        Long          approveuserid,
-        LocalDateTime approvetime,
-        Boolean       approvestatus
+        Long          placardid,
+        Boolean       recordstatus,
+        Boolean       status,
+        Long          createuser,
+        LocalDateTime createtime
     ) {
         this.id = id;
-        this.userid = userid;
-        this.channelid = channelid;
-        this.channelcode = channelcode;
+        this.recordid = recordid;
+        this.username = username;
         this.invitelink = invitelink;
         this.title = title;
         this.remark = remark;
+        this.membernumber = membernumber;
         this.tag = tag;
+        this.type = type;
         this.classification = classification;
-        this.classificationname = classificationname;
-        this.time = time;
-        this.enrollstatus = enrollstatus;
-        this.approveuserid = approveuserid;
-        this.approvetime = approvetime;
-        this.approvestatus = approvestatus;
+        this.placardid = placardid;
+        this.recordstatus = recordstatus;
+        this.status = status;
+        this.createuser = createuser;
+        this.createtime = createtime;
     }
 
     @Override
@@ -98,33 +98,23 @@ public class VEnroll implements IVEnroll {
     }
 
     @Override
-    public Long getUserid() {
-        return this.userid;
+    public Long getRecordid() {
+        return this.recordid;
     }
 
     @Override
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setRecordid(Long recordid) {
+        this.recordid = recordid;
     }
 
     @Override
-    public Long getChannelid() {
-        return this.channelid;
+    public String getUsername() {
+        return this.username;
     }
 
     @Override
-    public void setChannelid(Long channelid) {
-        this.channelid = channelid;
-    }
-
-    @Override
-    public String getChannelcode() {
-        return this.channelcode;
-    }
-
-    @Override
-    public void setChannelcode(String channelcode) {
-        this.channelcode = channelcode;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -158,6 +148,16 @@ public class VEnroll implements IVEnroll {
     }
 
     @Override
+    public Long getMembernumber() {
+        return this.membernumber;
+    }
+
+    @Override
+    public void setMembernumber(Long membernumber) {
+        this.membernumber = membernumber;
+    }
+
+    @Override
     public String getTag() {
         return this.tag;
     }
@@ -165,6 +165,16 @@ public class VEnroll implements IVEnroll {
     @Override
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    @Override
+    public String getType() {
+        return this.type;
+    }
+
+    @Override
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
@@ -178,63 +188,53 @@ public class VEnroll implements IVEnroll {
     }
 
     @Override
-    public String getClassificationname() {
-        return this.classificationname;
+    public Long getPlacardid() {
+        return this.placardid;
     }
 
     @Override
-    public void setClassificationname(String classificationname) {
-        this.classificationname = classificationname;
+    public void setPlacardid(Long placardid) {
+        this.placardid = placardid;
     }
 
     @Override
-    public LocalDateTime getTime() {
-        return this.time;
+    public Boolean getRecordstatus() {
+        return this.recordstatus;
     }
 
     @Override
-    public void setTime(LocalDateTime time) {
-        this.time = time;
+    public void setRecordstatus(Boolean recordstatus) {
+        this.recordstatus = recordstatus;
     }
 
     @Override
-    public Boolean getEnrollstatus() {
-        return this.enrollstatus;
+    public Boolean getStatus() {
+        return this.status;
     }
 
     @Override
-    public void setEnrollstatus(Boolean enrollstatus) {
-        this.enrollstatus = enrollstatus;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @Override
-    public Long getApproveuserid() {
-        return this.approveuserid;
+    public Long getCreateuser() {
+        return this.createuser;
     }
 
     @Override
-    public void setApproveuserid(Long approveuserid) {
-        this.approveuserid = approveuserid;
+    public void setCreateuser(Long createuser) {
+        this.createuser = createuser;
     }
 
     @Override
-    public LocalDateTime getApprovetime() {
-        return this.approvetime;
+    public LocalDateTime getCreatetime() {
+        return this.createtime;
     }
 
     @Override
-    public void setApprovetime(LocalDateTime approvetime) {
-        this.approvetime = approvetime;
-    }
-
-    @Override
-    public Boolean getApprovestatus() {
-        return this.approvestatus;
-    }
-
-    @Override
-    public void setApprovestatus(Boolean approvestatus) {
-        this.approvestatus = approvestatus;
+    public void setCreatetime(LocalDateTime createtime) {
+        this.createtime = createtime;
     }
 
     @Override
@@ -242,20 +242,20 @@ public class VEnroll implements IVEnroll {
         StringBuilder sb = new StringBuilder("VEnroll (");
 
         sb.append(id);
-        sb.append(", ").append(userid);
-        sb.append(", ").append(channelid);
-        sb.append(", ").append(channelcode);
+        sb.append(", ").append(recordid);
+        sb.append(", ").append(username);
         sb.append(", ").append(invitelink);
         sb.append(", ").append(title);
         sb.append(", ").append(remark);
+        sb.append(", ").append(membernumber);
         sb.append(", ").append(tag);
+        sb.append(", ").append(type);
         sb.append(", ").append(classification);
-        sb.append(", ").append(classificationname);
-        sb.append(", ").append(time);
-        sb.append(", ").append(enrollstatus);
-        sb.append(", ").append(approveuserid);
-        sb.append(", ").append(approvetime);
-        sb.append(", ").append(approvestatus);
+        sb.append(", ").append(placardid);
+        sb.append(", ").append(recordstatus);
+        sb.append(", ").append(status);
+        sb.append(", ").append(createuser);
+        sb.append(", ").append(createtime);
 
         sb.append(")");
         return sb.toString();
@@ -268,20 +268,20 @@ public class VEnroll implements IVEnroll {
     @Override
     public void from(IVEnroll from) {
         setId(from.getId());
-        setUserid(from.getUserid());
-        setChannelid(from.getChannelid());
-        setChannelcode(from.getChannelcode());
+        setRecordid(from.getRecordid());
+        setUsername(from.getUsername());
         setInvitelink(from.getInvitelink());
         setTitle(from.getTitle());
         setRemark(from.getRemark());
+        setMembernumber(from.getMembernumber());
         setTag(from.getTag());
+        setType(from.getType());
         setClassification(from.getClassification());
-        setClassificationname(from.getClassificationname());
-        setTime(from.getTime());
-        setEnrollstatus(from.getEnrollstatus());
-        setApproveuserid(from.getApproveuserid());
-        setApprovetime(from.getApprovetime());
-        setApprovestatus(from.getApprovestatus());
+        setPlacardid(from.getPlacardid());
+        setRecordstatus(from.getRecordstatus());
+        setStatus(from.getStatus());
+        setCreateuser(from.getCreateuser());
+        setCreatetime(from.getCreatetime());
     }
 
     @Override

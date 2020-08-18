@@ -15,7 +15,7 @@ import java.util.List;
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
-import org.jooq.Row13;
+import org.jooq.Row15;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -31,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Record extends TableImpl<RecordRecord> {
 
-    private static final long serialVersionUID = -1740244943;
+    private static final long serialVersionUID = -2005519983;
 
     /**
      * The reference instance of <code>indexBot.record</code>
@@ -52,9 +52,9 @@ public class Record extends TableImpl<RecordRecord> {
     public final TableField<RecordRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "频道\\群组\\机器人 ID");
 
     /**
-     * The column <code>indexBot.record.code</code>. 频道\群组\机器人 username
+     * The column <code>indexBot.record.username</code>. 频道\群组\机器人 username
      */
-    public final TableField<RecordRecord, String> CODE = createField(DSL.name("code"), org.jooq.impl.SQLDataType.VARCHAR(150), this, "频道\\群组\\机器人 username");
+    public final TableField<RecordRecord, String> USERNAME = createField(DSL.name("username"), org.jooq.impl.SQLDataType.VARCHAR(150), this, "频道\\群组\\机器人 username");
 
     /**
      * The column <code>indexBot.record.inviteLink</code>. 私有链接
@@ -97,9 +97,19 @@ public class Record extends TableImpl<RecordRecord> {
     public final TableField<RecordRecord, Long> PLACARDID = createField(DSL.name("placardId"), org.jooq.impl.SQLDataType.BIGINT, this, "公告ID");
 
     /**
+     * The column <code>indexBot.record.status</code>. 是否展示
+     */
+    public final TableField<RecordRecord, Boolean> STATUS = createField(DSL.name("status"), org.jooq.impl.SQLDataType.BIT, this, "是否展示");
+
+    /**
      * The column <code>indexBot.record.createTime</code>. 创建时间
      */
     public final TableField<RecordRecord, LocalDateTime> CREATETIME = createField(DSL.name("createTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "创建时间");
+
+    /**
+     * The column <code>indexBot.record.createUser</code>. 提交收录申请用户
+     */
+    public final TableField<RecordRecord, Long> CREATEUSER = createField(DSL.name("createUser"), org.jooq.impl.SQLDataType.BIGINT, this, "提交收录申请用户");
 
     /**
      * The column <code>indexBot.record.updateTime</code>. 更新时间
@@ -107,9 +117,9 @@ public class Record extends TableImpl<RecordRecord> {
     public final TableField<RecordRecord, LocalDateTime> UPDATETIME = createField(DSL.name("updateTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "更新时间");
 
     /**
-     * The column <code>indexBot.record.enrollUser</code>. 提交收录申请用户
+     * The column <code>indexBot.record.updateUser</code>. 修改用户
      */
-    public final TableField<RecordRecord, Long> ENROLLUSER = createField(DSL.name("enrollUser"), org.jooq.impl.SQLDataType.BIGINT, this, "提交收录申请用户");
+    public final TableField<RecordRecord, LocalDateTime> UPDATEUSER = createField(DSL.name("updateUser"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "修改用户");
 
     /**
      * Create a <code>indexBot.record</code> table reference
@@ -186,11 +196,11 @@ public class Record extends TableImpl<RecordRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row13 type methods
+    // Row15 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<Long, String, String, String, String, Long, String, String, String, Long, LocalDateTime, LocalDateTime, Long> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row15<Long, String, String, String, String, Long, String, String, String, Long, Boolean, LocalDateTime, Long, LocalDateTime, LocalDateTime> fieldsRow() {
+        return (Row15) super.fieldsRow();
     }
 }

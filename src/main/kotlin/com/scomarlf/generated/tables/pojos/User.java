@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User implements IUser {
 
-    private static final long serialVersionUID = -1395967213;
+    private static final long serialVersionUID = -322149023;
 
     private Long          id;
     private String        firstname;
@@ -23,7 +23,7 @@ public class User implements IUser {
     private Boolean       isbot;
     private String        languagecode;
     private LocalDateTime createtime;
-    private LocalDateTime lastoper;
+    private LocalDateTime updatetime;
 
     public User() {}
 
@@ -34,7 +34,7 @@ public class User implements IUser {
         this.isbot = value.getIsbot();
         this.languagecode = value.getLanguagecode();
         this.createtime = value.getCreatetime();
-        this.lastoper = value.getLastoper();
+        this.updatetime = value.getUpdatetime();
     }
 
     public User(
@@ -44,7 +44,7 @@ public class User implements IUser {
         Boolean       isbot,
         String        languagecode,
         LocalDateTime createtime,
-        LocalDateTime lastoper
+        LocalDateTime updatetime
     ) {
         this.id = id;
         this.firstname = firstname;
@@ -52,7 +52,7 @@ public class User implements IUser {
         this.isbot = isbot;
         this.languagecode = languagecode;
         this.createtime = createtime;
-        this.lastoper = lastoper;
+        this.updatetime = updatetime;
     }
 
     @Override
@@ -116,13 +116,13 @@ public class User implements IUser {
     }
 
     @Override
-    public LocalDateTime getLastoper() {
-        return this.lastoper;
+    public LocalDateTime getUpdatetime() {
+        return this.updatetime;
     }
 
     @Override
-    public void setLastoper(LocalDateTime lastoper) {
-        this.lastoper = lastoper;
+    public void setUpdatetime(LocalDateTime updatetime) {
+        this.updatetime = updatetime;
     }
 
     @Override
@@ -135,7 +135,7 @@ public class User implements IUser {
         sb.append(", ").append(isbot);
         sb.append(", ").append(languagecode);
         sb.append(", ").append(createtime);
-        sb.append(", ").append(lastoper);
+        sb.append(", ").append(updatetime);
 
         sb.append(")");
         return sb.toString();
@@ -153,7 +153,7 @@ public class User implements IUser {
         setIsbot(from.getIsbot());
         setLanguagecode(from.getLanguagecode());
         setCreatetime(from.getCreatetime());
-        setLastoper(from.getLastoper());
+        setUpdatetime(from.getUpdatetime());
     }
 
     @Override

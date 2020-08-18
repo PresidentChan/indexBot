@@ -8,6 +8,7 @@ import com.scomarlf.generated.tables.Approve;
 import com.scomarlf.generated.tables.Constant;
 import com.scomarlf.generated.tables.Dictionary;
 import com.scomarlf.generated.tables.Enroll;
+import com.scomarlf.generated.tables.FlywaySchemaHistory;
 import com.scomarlf.generated.tables.Record;
 import com.scomarlf.generated.tables.User;
 import com.scomarlf.generated.tables.VEnroll;
@@ -39,6 +40,11 @@ public class Tables {
      * The table <code>indexBot.enroll</code>.
      */
     public static final Enroll ENROLL = Enroll.ENROLL;
+
+    /**
+     * The table <code>indexBot.flyway_schema_history</code>.
+     */
+    public static final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * The table <code>indexBot.record</code>.

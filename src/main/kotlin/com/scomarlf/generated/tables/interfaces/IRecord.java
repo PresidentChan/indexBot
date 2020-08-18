@@ -25,14 +25,14 @@ public interface IRecord extends Serializable {
     public Long getId();
 
     /**
-     * Setter for <code>indexBot.record.code</code>. 频道\群组\机器人 username
+     * Setter for <code>indexBot.record.username</code>. 频道\群组\机器人 username
      */
-    public void setCode(String value);
+    public void setUsername(String value);
 
     /**
-     * Getter for <code>indexBot.record.code</code>. 频道\群组\机器人 username
+     * Getter for <code>indexBot.record.username</code>. 频道\群组\机器人 username
      */
-    public String getCode();
+    public String getUsername();
 
     /**
      * Setter for <code>indexBot.record.inviteLink</code>. 私有链接
@@ -115,6 +115,16 @@ public interface IRecord extends Serializable {
     public Long getPlacardid();
 
     /**
+     * Setter for <code>indexBot.record.status</code>. 是否展示
+     */
+    public void setStatus(Boolean value);
+
+    /**
+     * Getter for <code>indexBot.record.status</code>. 是否展示
+     */
+    public Boolean getStatus();
+
+    /**
      * Setter for <code>indexBot.record.createTime</code>. 创建时间
      */
     public void setCreatetime(LocalDateTime value);
@@ -123,6 +133,16 @@ public interface IRecord extends Serializable {
      * Getter for <code>indexBot.record.createTime</code>. 创建时间
      */
     public LocalDateTime getCreatetime();
+
+    /**
+     * Setter for <code>indexBot.record.createUser</code>. 提交收录申请用户
+     */
+    public void setCreateuser(Long value);
+
+    /**
+     * Getter for <code>indexBot.record.createUser</code>. 提交收录申请用户
+     */
+    public Long getCreateuser();
 
     /**
      * Setter for <code>indexBot.record.updateTime</code>. 更新时间
@@ -135,14 +155,14 @@ public interface IRecord extends Serializable {
     public LocalDateTime getUpdatetime();
 
     /**
-     * Setter for <code>indexBot.record.enrollUser</code>. 提交收录申请用户
+     * Setter for <code>indexBot.record.updateUser</code>. 修改用户
      */
-    public void setEnrolluser(Long value);
+    public void setUpdateuser(LocalDateTime value);
 
     /**
-     * Getter for <code>indexBot.record.enrollUser</code>. 提交收录申请用户
+     * Getter for <code>indexBot.record.updateUser</code>. 修改用户
      */
-    public Long getEnrolluser();
+    public LocalDateTime getUpdateuser();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

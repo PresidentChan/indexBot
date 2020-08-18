@@ -47,6 +47,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.21</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>6.5.4</version>
+        </dependency>
+
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
@@ -121,6 +128,18 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>6.5.4</version>
+                <configuration>
+                    <url>jdbc:mysql://localhost:3306/indexBot?serverTimezone=UTC&amp;characterEncoding=utf-8</url>
+                    <user>root</user>
+                    <password>password</password>
+                </configuration>
+            </plugin>
+
 
             <!-- <plugin>-->
             <!--     <groupId>org.jooq</groupId>-->

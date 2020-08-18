@@ -8,6 +8,7 @@ import com.scomarlf.generated.tables.Approve;
 import com.scomarlf.generated.tables.Constant;
 import com.scomarlf.generated.tables.Dictionary;
 import com.scomarlf.generated.tables.Enroll;
+import com.scomarlf.generated.tables.FlywaySchemaHistory;
 import com.scomarlf.generated.tables.Record;
 import com.scomarlf.generated.tables.User;
 import com.scomarlf.generated.tables.VEnroll;
@@ -27,7 +28,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexbot extends SchemaImpl {
 
-    private static final long serialVersionUID = -961945113;
+    private static final long serialVersionUID = -310422985;
 
     /**
      * The reference instance of <code>indexBot</code>
@@ -53,6 +54,11 @@ public class Indexbot extends SchemaImpl {
      * The table <code>indexBot.enroll</code>.
      */
     public final Enroll ENROLL = Enroll.ENROLL;
+
+    /**
+     * The table <code>indexBot.flyway_schema_history</code>.
+     */
+    public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * The table <code>indexBot.record</code>.
@@ -94,6 +100,7 @@ public class Indexbot extends SchemaImpl {
             Constant.CONSTANT,
             Dictionary.DICTIONARY,
             Enroll.ENROLL,
+            FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
             Record.RECORD,
             User.USER,
             VEnroll.V_ENROLL,

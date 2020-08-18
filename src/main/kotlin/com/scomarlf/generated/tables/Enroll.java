@@ -16,7 +16,7 @@ import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row11;
+import org.jooq.Row5;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -32,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Enroll extends TableImpl<EnrollRecord> {
 
-    private static final long serialVersionUID = -480754312;
+    private static final long serialVersionUID = -300638638;
 
     /**
      * The reference instance of <code>indexBot.enroll</code>
@@ -53,54 +53,24 @@ public class Enroll extends TableImpl<EnrollRecord> {
     public final TableField<EnrollRecord, String> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "主键");
 
     /**
-     * The column <code>indexBot.enroll.userId</code>. 用户ID
+     * The column <code>indexBot.enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public final TableField<EnrollRecord, Long> USERID = createField(DSL.name("userId"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
-
-    /**
-     * The column <code>indexBot.enroll.channelId</code>. 申请频道ID
-     */
-    public final TableField<EnrollRecord, Long> CHANNELID = createField(DSL.name("channelId"), org.jooq.impl.SQLDataType.BIGINT, this, "申请频道ID");
-
-    /**
-     * The column <code>indexBot.enroll.channelCode</code>. 申请频道 username
-     */
-    public final TableField<EnrollRecord, String> CHANNELCODE = createField(DSL.name("channelCode"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "申请频道 username");
-
-    /**
-     * The column <code>indexBot.enroll.inviteLink</code>. 申请频道私有链接
-     */
-    public final TableField<EnrollRecord, String> INVITELINK = createField(DSL.name("inviteLink"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "申请频道私有链接");
-
-    /**
-     * The column <code>indexBot.enroll.title</code>. 名称
-     */
-    public final TableField<EnrollRecord, String> TITLE = createField(DSL.name("title"), org.jooq.impl.SQLDataType.VARCHAR(200), this, "名称");
-
-    /**
-     * The column <code>indexBot.enroll.remark</code>. 简介
-     */
-    public final TableField<EnrollRecord, String> REMARK = createField(DSL.name("remark"), org.jooq.impl.SQLDataType.CLOB, this, "简介");
-
-    /**
-     * The column <code>indexBot.enroll.tag</code>. 标签
-     */
-    public final TableField<EnrollRecord, String> TAG = createField(DSL.name("tag"), org.jooq.impl.SQLDataType.VARCHAR(200), this, "标签");
-
-    /**
-     * The column <code>indexBot.enroll.classification</code>. 分类
-     */
-    public final TableField<EnrollRecord, String> CLASSIFICATION = createField(DSL.name("classification"), org.jooq.impl.SQLDataType.VARCHAR(10), this, "分类");
-
-    /**
-     * The column <code>indexBot.enroll.time</code>. 申请时间
-     */
-    public final TableField<EnrollRecord, LocalDateTime> TIME = createField(DSL.name("time"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "申请时间");
+    public final TableField<EnrollRecord, Long> RECORDID = createField(DSL.name("recordId"), org.jooq.impl.SQLDataType.BIGINT, this, "频道/群组/bot  ID");
 
     /**
      * The column <code>indexBot.enroll.status</code>. 是否提交
      */
     public final TableField<EnrollRecord, Boolean> STATUS = createField(DSL.name("status"), org.jooq.impl.SQLDataType.BIT, this, "是否提交");
+
+    /**
+     * The column <code>indexBot.enroll.createUser</code>. 用户ID
+     */
+    public final TableField<EnrollRecord, Long> CREATEUSER = createField(DSL.name("createUser"), org.jooq.impl.SQLDataType.BIGINT, this, "用户ID");
+
+    /**
+     * The column <code>indexBot.enroll.createTime</code>. 申请时间
+     */
+    public final TableField<EnrollRecord, LocalDateTime> CREATETIME = createField(DSL.name("createTime"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "申请时间");
 
     /**
      * Create a <code>indexBot.enroll</code> table reference
@@ -177,11 +147,11 @@ public class Enroll extends TableImpl<EnrollRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row11 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row11<String, Long, Long, String, String, String, String, String, String, LocalDateTime, Boolean> fieldsRow() {
-        return (Row11) super.fieldsRow();
+    public Row5<String, Long, Boolean, Long, LocalDateTime> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 }

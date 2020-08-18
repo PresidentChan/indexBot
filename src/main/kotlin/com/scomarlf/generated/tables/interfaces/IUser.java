@@ -75,14 +75,14 @@ public interface IUser extends Serializable {
     public LocalDateTime getCreatetime();
 
     /**
-     * Setter for <code>indexBot.user.lastOper</code>. 最后一次操作的时间
+     * Setter for <code>indexBot.user.updateTime</code>. 最后一次操作的时间
      */
-    public void setLastoper(LocalDateTime value);
+    public void setUpdatetime(LocalDateTime value);
 
     /**
-     * Getter for <code>indexBot.user.lastOper</code>. 最后一次操作的时间
+     * Getter for <code>indexBot.user.updateTime</code>. 最后一次操作的时间
      */
-    public LocalDateTime getLastoper();
+    public LocalDateTime getUpdatetime();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

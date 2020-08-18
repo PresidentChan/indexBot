@@ -25,42 +25,32 @@ public interface IVEnroll extends Serializable {
     public String getId();
 
     /**
-     * Setter for <code>indexBot.v_enroll.userId</code>. 用户ID
+     * Setter for <code>indexBot.v_enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public void setUserid(Long value);
+    public void setRecordid(Long value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.userId</code>. 用户ID
+     * Getter for <code>indexBot.v_enroll.recordId</code>. 频道/群组/bot  ID
      */
-    public Long getUserid();
+    public Long getRecordid();
 
     /**
-     * Setter for <code>indexBot.v_enroll.channelId</code>. 申请频道ID
+     * Setter for <code>indexBot.v_enroll.username</code>. 频道\群组\机器人 username
      */
-    public void setChannelid(Long value);
+    public void setUsername(String value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.channelId</code>. 申请频道ID
+     * Getter for <code>indexBot.v_enroll.username</code>. 频道\群组\机器人 username
      */
-    public Long getChannelid();
+    public String getUsername();
 
     /**
-     * Setter for <code>indexBot.v_enroll.channelCode</code>. 申请频道 username
-     */
-    public void setChannelcode(String value);
-
-    /**
-     * Getter for <code>indexBot.v_enroll.channelCode</code>. 申请频道 username
-     */
-    public String getChannelcode();
-
-    /**
-     * Setter for <code>indexBot.v_enroll.inviteLink</code>. 申请频道私有链接
+     * Setter for <code>indexBot.v_enroll.inviteLink</code>. 私有链接
      */
     public void setInvitelink(String value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.inviteLink</code>. 申请频道私有链接
+     * Getter for <code>indexBot.v_enroll.inviteLink</code>. 私有链接
      */
     public String getInvitelink();
 
@@ -85,6 +75,16 @@ public interface IVEnroll extends Serializable {
     public String getRemark();
 
     /**
+     * Setter for <code>indexBot.v_enroll.memberNumber</code>. 成员数量
+     */
+    public void setMembernumber(Long value);
+
+    /**
+     * Getter for <code>indexBot.v_enroll.memberNumber</code>. 成员数量
+     */
+    public Long getMembernumber();
+
+    /**
      * Setter for <code>indexBot.v_enroll.tag</code>. 标签
      */
     public void setTag(String value);
@@ -93,6 +93,16 @@ public interface IVEnroll extends Serializable {
      * Getter for <code>indexBot.v_enroll.tag</code>. 标签
      */
     public String getTag();
+
+    /**
+     * Setter for <code>indexBot.v_enroll.type</code>. 收录类型 字典-recordType   频道\群组\机器人
+     */
+    public void setType(String value);
+
+    /**
+     * Getter for <code>indexBot.v_enroll.type</code>. 收录类型 字典-recordType   频道\群组\机器人
+     */
+    public String getType();
 
     /**
      * Setter for <code>indexBot.v_enroll.classification</code>. 分类
@@ -105,64 +115,54 @@ public interface IVEnroll extends Serializable {
     public String getClassification();
 
     /**
-     * Setter for <code>indexBot.v_enroll.classificationName</code>. 名
+     * Setter for <code>indexBot.v_enroll.placardId</code>. 公告ID
      */
-    public void setClassificationname(String value);
+    public void setPlacardid(Long value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.classificationName</code>. 名
+     * Getter for <code>indexBot.v_enroll.placardId</code>. 公告ID
      */
-    public String getClassificationname();
+    public Long getPlacardid();
 
     /**
-     * Setter for <code>indexBot.v_enroll.time</code>. 申请时间
+     * Setter for <code>indexBot.v_enroll.recordStatus</code>. 是否展示
      */
-    public void setTime(LocalDateTime value);
+    public void setRecordstatus(Boolean value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.time</code>. 申请时间
+     * Getter for <code>indexBot.v_enroll.recordStatus</code>. 是否展示
      */
-    public LocalDateTime getTime();
+    public Boolean getRecordstatus();
 
     /**
-     * Setter for <code>indexBot.v_enroll.enrollStatus</code>. 是否提交
+     * Setter for <code>indexBot.v_enroll.status</code>. 是否提交
      */
-    public void setEnrollstatus(Boolean value);
+    public void setStatus(Boolean value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.enrollStatus</code>. 是否提交
+     * Getter for <code>indexBot.v_enroll.status</code>. 是否提交
      */
-    public Boolean getEnrollstatus();
+    public Boolean getStatus();
 
     /**
-     * Setter for <code>indexBot.v_enroll.approveUserId</code>. 用户ID
+     * Setter for <code>indexBot.v_enroll.createUser</code>. 用户ID
      */
-    public void setApproveuserid(Long value);
+    public void setCreateuser(Long value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.approveUserId</code>. 用户ID
+     * Getter for <code>indexBot.v_enroll.createUser</code>. 用户ID
      */
-    public Long getApproveuserid();
+    public Long getCreateuser();
 
     /**
-     * Setter for <code>indexBot.v_enroll.approveTime</code>. 审核时间
+     * Setter for <code>indexBot.v_enroll.createTime</code>. 申请时间
      */
-    public void setApprovetime(LocalDateTime value);
+    public void setCreatetime(LocalDateTime value);
 
     /**
-     * Getter for <code>indexBot.v_enroll.approveTime</code>. 审核时间
+     * Getter for <code>indexBot.v_enroll.createTime</code>. 申请时间
      */
-    public LocalDateTime getApprovetime();
-
-    /**
-     * Setter for <code>indexBot.v_enroll.approveStatus</code>. 审核状态 通过不通过
-     */
-    public void setApprovestatus(Boolean value);
-
-    /**
-     * Getter for <code>indexBot.v_enroll.approveStatus</code>. 审核状态 通过不通过
-     */
-    public Boolean getApprovestatus();
+    public LocalDateTime getCreatetime();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

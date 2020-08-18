@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class VRecord implements IVRecord {
 
-    private static final long serialVersionUID = -1062014279;
+    private static final long serialVersionUID = -274966206;
 
     private Long          id;
-    private String        code;
+    private String        username;
     private String        invitelink;
     private String        title;
     private String        remark;
@@ -29,15 +29,17 @@ public class VRecord implements IVRecord {
     private String        classification;
     private String        classificationname;
     private Long          placardid;
+    private Boolean       status;
     private LocalDateTime createtime;
+    private Long          createuser;
     private LocalDateTime updatetime;
-    private Long          enrolluser;
+    private LocalDateTime updateuser;
 
     public VRecord() {}
 
     public VRecord(IVRecord value) {
         this.id = value.getId();
-        this.code = value.getCode();
+        this.username = value.getUsername();
         this.invitelink = value.getInvitelink();
         this.title = value.getTitle();
         this.remark = value.getRemark();
@@ -48,14 +50,16 @@ public class VRecord implements IVRecord {
         this.classification = value.getClassification();
         this.classificationname = value.getClassificationname();
         this.placardid = value.getPlacardid();
+        this.status = value.getStatus();
         this.createtime = value.getCreatetime();
+        this.createuser = value.getCreateuser();
         this.updatetime = value.getUpdatetime();
-        this.enrolluser = value.getEnrolluser();
+        this.updateuser = value.getUpdateuser();
     }
 
     public VRecord(
         Long          id,
-        String        code,
+        String        username,
         String        invitelink,
         String        title,
         String        remark,
@@ -66,12 +70,14 @@ public class VRecord implements IVRecord {
         String        classification,
         String        classificationname,
         Long          placardid,
+        Boolean       status,
         LocalDateTime createtime,
+        Long          createuser,
         LocalDateTime updatetime,
-        Long          enrolluser
+        LocalDateTime updateuser
     ) {
         this.id = id;
-        this.code = code;
+        this.username = username;
         this.invitelink = invitelink;
         this.title = title;
         this.remark = remark;
@@ -82,9 +88,11 @@ public class VRecord implements IVRecord {
         this.classification = classification;
         this.classificationname = classificationname;
         this.placardid = placardid;
+        this.status = status;
         this.createtime = createtime;
+        this.createuser = createuser;
         this.updatetime = updatetime;
-        this.enrolluser = enrolluser;
+        this.updateuser = updateuser;
     }
 
     @Override
@@ -98,13 +106,13 @@ public class VRecord implements IVRecord {
     }
 
     @Override
-    public String getCode() {
-        return this.code;
+    public String getUsername() {
+        return this.username;
     }
 
     @Override
-    public void setCode(String code) {
-        this.code = code;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -208,6 +216,16 @@ public class VRecord implements IVRecord {
     }
 
     @Override
+    public Boolean getStatus() {
+        return this.status;
+    }
+
+    @Override
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    @Override
     public LocalDateTime getCreatetime() {
         return this.createtime;
     }
@@ -215,6 +233,16 @@ public class VRecord implements IVRecord {
     @Override
     public void setCreatetime(LocalDateTime createtime) {
         this.createtime = createtime;
+    }
+
+    @Override
+    public Long getCreateuser() {
+        return this.createuser;
+    }
+
+    @Override
+    public void setCreateuser(Long createuser) {
+        this.createuser = createuser;
     }
 
     @Override
@@ -228,13 +256,13 @@ public class VRecord implements IVRecord {
     }
 
     @Override
-    public Long getEnrolluser() {
-        return this.enrolluser;
+    public LocalDateTime getUpdateuser() {
+        return this.updateuser;
     }
 
     @Override
-    public void setEnrolluser(Long enrolluser) {
-        this.enrolluser = enrolluser;
+    public void setUpdateuser(LocalDateTime updateuser) {
+        this.updateuser = updateuser;
     }
 
     @Override
@@ -242,7 +270,7 @@ public class VRecord implements IVRecord {
         StringBuilder sb = new StringBuilder("VRecord (");
 
         sb.append(id);
-        sb.append(", ").append(code);
+        sb.append(", ").append(username);
         sb.append(", ").append(invitelink);
         sb.append(", ").append(title);
         sb.append(", ").append(remark);
@@ -253,9 +281,11 @@ public class VRecord implements IVRecord {
         sb.append(", ").append(classification);
         sb.append(", ").append(classificationname);
         sb.append(", ").append(placardid);
+        sb.append(", ").append(status);
         sb.append(", ").append(createtime);
+        sb.append(", ").append(createuser);
         sb.append(", ").append(updatetime);
-        sb.append(", ").append(enrolluser);
+        sb.append(", ").append(updateuser);
 
         sb.append(")");
         return sb.toString();
@@ -268,7 +298,7 @@ public class VRecord implements IVRecord {
     @Override
     public void from(IVRecord from) {
         setId(from.getId());
-        setCode(from.getCode());
+        setUsername(from.getUsername());
         setInvitelink(from.getInvitelink());
         setTitle(from.getTitle());
         setRemark(from.getRemark());
@@ -279,9 +309,11 @@ public class VRecord implements IVRecord {
         setClassification(from.getClassification());
         setClassificationname(from.getClassificationname());
         setPlacardid(from.getPlacardid());
+        setStatus(from.getStatus());
         setCreatetime(from.getCreatetime());
+        setCreateuser(from.getCreateuser());
         setUpdatetime(from.getUpdatetime());
-        setEnrolluser(from.getEnrolluser());
+        setUpdateuser(from.getUpdateuser());
     }
 
     @Override

@@ -131,16 +131,16 @@ public class UserDao extends DAOImpl<UserRecord, com.scomarlf.generated.tables.p
     }
 
     /**
-     * Fetch records that have <code>lastOper BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>updateTime BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.User> fetchRangeOfLastoper(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
-        return fetchRange(User.USER.LASTOPER, lowerInclusive, upperInclusive);
+    public List<com.scomarlf.generated.tables.pojos.User> fetchRangeOfUpdatetime(LocalDateTime lowerInclusive, LocalDateTime upperInclusive) {
+        return fetchRange(User.USER.UPDATETIME, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>lastOper IN (values)</code>
+     * Fetch records that have <code>updateTime IN (values)</code>
      */
-    public List<com.scomarlf.generated.tables.pojos.User> fetchByLastoper(LocalDateTime... values) {
-        return fetch(User.USER.LASTOPER, values);
+    public List<com.scomarlf.generated.tables.pojos.User> fetchByUpdatetime(LocalDateTime... values) {
+        return fetch(User.USER.UPDATETIME, values);
     }
 }
