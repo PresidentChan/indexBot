@@ -1,0 +1,12 @@
+{
+  "bot": {
+    "bot_token": "1234567890:ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789",
+    "bot_username": "zh_secretary_bot",
+    "creater": 777000
+  },
+  "database": {
+    "url": "jdbc:mysql://localhost:3306/indexBot?serverTimezone=UTC&characterEncoding=utf-8",
+    "username": "username",
+    "password": "passowrd"
+  }
+}

@@ -14,11 +14,20 @@ git clone git@github.com:Scomarlf/indexBot.git
 cd indexBot
 ```
 #### 3.配置bot
-复制一份_bot.json文件并重命名为bot.json，编辑bot.json文件，配置其信息
+复制一份_conf.json文件并重命名为conf.json，编辑conf.json文件，配置其信息
 ```
-bot_token: 通过 @BotFather 获取
-bot_username: bot用户名（不包含“@”符号）
-creater: bot 创建者
+{
+  "bot": {
+    "bot_token": 通过 @BotFather 获取
+    "bot_username": bot用户名（不包含“@”符号）
+    "creater": bot 创建者
+  },
+  "database": {
+    "url": 数据库链接
+    "username": 数据库登录用户名
+    "password": 数据库登录密码
+  }
+}
 ```
 #### 4.运行
 ```shell script

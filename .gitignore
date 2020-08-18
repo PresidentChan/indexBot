@@ -26,7 +26,7 @@ hs_err_pid*
 \target
 \out
 
-bot.json
+conf.json
 
 zh_secretary_d_bot
 zh_secretary_d_bot.wal.0

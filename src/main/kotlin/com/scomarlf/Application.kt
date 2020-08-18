@@ -1,7 +1,8 @@
 package com.scomarlf
 
 import com.scomarlf.bot.IndexBot
-import com.scomarlf.bot.conf.Detail
+import com.scomarlf.conf.Bot
+import com.scomarlf.conf.Database
 import org.apache.commons.io.FileUtils
 import org.json.JSONObject
 import org.telegram.telegrambots.ApiContextInitializer
@@ -22,12 +23,19 @@ fun main(args: Array<String>) {
  */
 fun readConf(): Boolean {
     try {
-        val file = File("bot.json")
+        val file = File("conf.json")
         val content = FileUtils.readFileToString(file, "UTF-8")
         val jsonObject = JSONObject(content)
-        Detail.token = jsonObject.get("bot_token") as String
-        Detail.username = jsonObject.get("bot_username") as String
-        Detail.creater = jsonObject.get("creater") as Int
+        // bot 配置
+        val botConfObj = jsonObject.get("bot") as JSONObject
+        Bot.TOKEN = botConfObj.get("bot_token") as String
+        Bot.USERNAME = botConfObj.get("bot_username") as String
+        Bot.CREATER = botConfObj.get("creater") as Int
+        // 数据库配置
+        val databaseConfObj = jsonObject.get("database") as JSONObject
+        Database.URL = databaseConfObj.get("url") as String
+        Database.USERNAME = databaseConfObj.get("username") as String
+        Database.PASSWORD = databaseConfObj.get("password") as String
         return true
     } catch (e: Exception) {
         e.printStackTrace()
@@ -51,9 +59,9 @@ fun botStart() {
     // Register bot
     try {
         // don't use proxy
-        botsApi.registerBot(IndexBot(DefaultBotOptions()))
+//        botsApi.registerBot(IndexBot(DefaultBotOptions()))
         // use proxy
-        // botsApi.registerBot(IndexBot(botOptions));
+         botsApi.registerBot(IndexBot(botOptions));
     } catch (e: TelegramApiException) {
         e.printStackTrace()
     }
