@@ -16,8 +16,8 @@ import java.io.File
 fun main(args: Array<String>) {
     // read config file
     val readStatus = readConf()
-    if (readStatus){
-        //create database connection
+    if (readStatus) {
+        // create database connection
         HikariManager.createConnection()
         // start bot
         botStart()
@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
 }
 
 /**
- * get bot config
+ * get bot and database config
  */
 fun readConf(): Boolean {
     try {
@@ -36,6 +36,7 @@ fun readConf(): Boolean {
         val botConfObj = jsonObject.get("bot") as JSONObject
         BotConf.TOKEN = botConfObj.get("bot_token") as String
         BotConf.USERNAME = botConfObj.get("bot_username") as String
+        BotConf.ID = BotConf.TOKEN.split(':')[0].toInt()
         BotConf.CREATER = botConfObj.get("creater") as Int
         // for database
         val databaseConfObj = jsonObject.get("database") as JSONObject
@@ -67,7 +68,7 @@ fun botStart() {
         // don't use proxy
         botsApi.registerBot(IndexBot(DefaultBotOptions()))
         // use proxy
-//         botsApi.registerBot(IndexBot(botOptions));
+        // botsApi.registerBot(IndexBot(botOptions));
     } catch (e: TelegramApiException) {
         e.printStackTrace()
     }

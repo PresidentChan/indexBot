@@ -127,4 +127,22 @@ CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`%` SQL SECURITY DEFINER VIEW `v_e
 DROP VIEW IF EXISTS `v_record`;
 CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`%` SQL SECURITY DEFINER VIEW `v_record` AS select `r`.`id` AS `id`,`r`.`username` AS `username`,`r`.`inviteLink` AS `inviteLink`,`r`.`title` AS `title`,`r`.`remark` AS `remark`,`r`.`memberNumber` AS `memberNumber`,`r`.`tag` AS `tag`,`r`.`type` AS `type`,(select `dictionary`.`label` from `dictionary` where (`dictionary`.`id` = `r`.`type`)) AS `typeName`,`r`.`classification` AS `classification`,(select `dictionary`.`label` from `dictionary` where (`dictionary`.`id` = `r`.`classification`)) AS `classificationName`,`r`.`placardId` AS `placardId`,`r`.`status` AS `status`,`r`.`createTime` AS `createTime`,`r`.`createUser` AS `createUser`,`r`.`updateTime` AS `updateTime`,`r`.`updateUser` AS `updateUser` from `record` `r`;
 
+-- ----------------------------
+-- Table structure for ecology
+-- ----------------------------
+DROP TABLE IF EXISTS `ecology`;
+CREATE TABLE `ecology`  (
+  `id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `chatId` bigint(20) NULL DEFAULT NULL COMMENT '群组/频道 ID',
+  `username` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '群组/频道 用户名',
+  `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ecology
+-- ----------------------------
+INSERT INTO `ecology` VALUES ('approve', NULL, NULL, 'a group to approve the enroll request');
+INSERT INTO `ecology` VALUES ('bulletin', NULL, NULL, 'after the enroll is passed, the announcement will be posted to the channel');
+
 SET FOREIGN_KEY_CHECKS = 1;

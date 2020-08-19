@@ -7,6 +7,7 @@ package com.scomarlf.generated;
 import com.scomarlf.generated.tables.Approve;
 import com.scomarlf.generated.tables.Constant;
 import com.scomarlf.generated.tables.Dictionary;
+import com.scomarlf.generated.tables.Ecology;
 import com.scomarlf.generated.tables.Enroll;
 import com.scomarlf.generated.tables.FlywaySchemaHistory;
 import com.scomarlf.generated.tables.Record;
@@ -28,7 +29,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexbot extends SchemaImpl {
 
-    private static final long serialVersionUID = -310422985;
+    private static final long serialVersionUID = 1051919751;
 
     /**
      * The reference instance of <code>indexBot</code>
@@ -49,6 +50,11 @@ public class Indexbot extends SchemaImpl {
      * The table <code>indexBot.dictionary</code>.
      */
     public final Dictionary DICTIONARY = Dictionary.DICTIONARY;
+
+    /**
+     * The table <code>indexBot.ecology</code>.
+     */
+    public final Ecology ECOLOGY = Ecology.ECOLOGY;
 
     /**
      * The table <code>indexBot.enroll</code>.
@@ -99,6 +105,7 @@ public class Indexbot extends SchemaImpl {
             Approve.APPROVE,
             Constant.CONSTANT,
             Dictionary.DICTIONARY,
+            Ecology.ECOLOGY,
             Enroll.ENROLL,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY,
             Record.RECORD,

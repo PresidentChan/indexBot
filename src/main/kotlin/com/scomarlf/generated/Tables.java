@@ -7,6 +7,7 @@ package com.scomarlf.generated;
 import com.scomarlf.generated.tables.Approve;
 import com.scomarlf.generated.tables.Constant;
 import com.scomarlf.generated.tables.Dictionary;
+import com.scomarlf.generated.tables.Ecology;
 import com.scomarlf.generated.tables.Enroll;
 import com.scomarlf.generated.tables.FlywaySchemaHistory;
 import com.scomarlf.generated.tables.Record;
@@ -35,6 +36,11 @@ public class Tables {
      * The table <code>indexBot.dictionary</code>.
      */
     public static final Dictionary DICTIONARY = Dictionary.DICTIONARY;
+
+    /**
+     * The table <code>indexBot.ecology</code>.
+     */
+    public static final Ecology ECOLOGY = Ecology.ECOLOGY;
 
     /**
      * The table <code>indexBot.enroll</code>.

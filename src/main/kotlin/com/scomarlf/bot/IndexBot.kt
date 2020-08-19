@@ -11,8 +11,7 @@ class IndexBot(botOptions: DefaultBotOptions) : AbilityBot(BotConf.TOKEN, BotCon
     var mainHandle : MainResponseHandles? = null
 
     init {
-        print("bot started");
-
+        println("bot start");
         mainHandle = MainResponseHandles(sender)
     }
 
@@ -24,4 +23,6 @@ class IndexBot(botOptions: DefaultBotOptions) : AbilityBot(BotConf.TOKEN, BotCon
         mainHandle?.helloWorld(update);
         mainHandle?.test();
     }
+
+
 }
