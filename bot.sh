@@ -44,6 +44,7 @@ elif [ "$1" == "run" ]; then
   mvn install
   # move conf.json file to application folder
   cp conf.json target/
+  cp lang.json target/
   java -jar $(readlink -e ./)/target/indexbot-1.1.jar
 elif [ "$1" == "help" ]; then
   echo -e "\033[36m =========================== \033[0m"
